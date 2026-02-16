@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>الوحش الخامس: العملاق – الخوف | مدينة الفشل</title>
+  <meta name="description" content="الوحش الخامس في مدينة الفشل: العملاق – الخوف. صفحة موسوعية منظمة." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1620;
+      --text:#e9eef6;
+      --muted:#b7c3d6;
+      --line:#223042;
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
+      --danger:#fb7185;
+      --ok:#34d399;
+      --warn:#fbbf24;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Kufi Arabic", "Noto Sans Arabic", sans-serif;
+      background: radial-gradient(1200px 700px at 80% 10%, rgba(167,139,250,.18), transparent 60%),
+                  radial-gradient(1000px 700px at 10% 20%, rgba(125,211,252,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.85;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px}
+
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      margin-top:8px;
+      margin-bottom:14px;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.95));
+      box-shadow: var(--shadow);
+      display:grid;place-items:center;
+      font-weight:900;color:#081018;
+    }
+
+    .brand h1{
+      margin:0;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .brand p{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:2px;
+    }
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      transition:.2s;
+      font-weight:700;
+      font-size:13px;
+      cursor:pointer;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(125,211,252,.55);
+      background: rgba(125,211,252,.06);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      margin-top:14px;
+    }
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .card{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .card .pad{padding:18px}
+
+    .title{
+      margin:0;
+      font-size:22px;
+      line-height:1.3;
+    }
+    .subtitle{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .tagrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .tag{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      font-size:12px;
+      color:var(--muted);
+    }
+    .tag strong{color:var(--text)}
+
+    .monsterImg{
+      width:100%;
+      aspect-ratio: 4/3;
+      background: #0a0f16;
+      border-bottom:1px solid var(--line);
+      display:grid;
+      place-items:center;
+      position:relative;
+    }
+    .monsterImg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.05) saturate(1.05);
+    }
+    .imgOverlay{
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.65));
+      pointer-events:none;
+    }
+    .imgCaption{
+      position:absolute;
+      bottom:12px;
+      right:12px;
+      left:12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:10px;
+    }
+    .imgCaption .name{
+      font-weight:900;
+      font-size:16px;
+    }
+    .imgCaption .code{
+      color:rgba(255,255,255,.85);
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(6px);
+    }
+
+    .section{
+      padding:18px;
+      border-top:1px solid var(--line);
+    }
+
+    .secTitle{
+      margin:0 0 10px 0;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+
+    .kv{
+      display:grid;
+      grid-template-columns: 240px 1fr;
+      gap:12px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      margin-bottom:10px;
+    }
+    @media (max-width: 700px){
+      .kv{grid-template-columns:1fr}
+    }
+    .k{
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+    }
+    .v{
+      font-size:14px;
+    }
+
+    .list{
+      margin:0;
+      padding:0 18px 0 0;
+      color:var(--text);
+    }
+    .list li{margin:6px 0}
+
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .chip{
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+    }
+    .chip.ok{border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.08)}
+    .chip.bad{border-color: rgba(251,113,133,.35); background: rgba(251,113,133,.08)}
+    .chip.warn{border-color: rgba(251,191,36,.35); background: rgba(251,191,36,.08)}
+
+    footer{
+      color:var(--muted);
+      font-size:12px;
+      text-align:center;
+      padding:20px 0 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="brand">
+        <div class="logo">CF</div>
+        <div>
+          <h1>مدينة الفشل — موسوعة الوحوش</h1>
+          <p>الوحش الخامس: العملاق (الخوف)</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="btn" href="index.html" data-home="1">⬅️ العودة للرئيسية</a>
+        <a class="btn" href="monsters.html">🧟 صفحة الوحوش</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <div class="pad">
+          <h2 class="title">الوحش الخامس: العملاق – الخوف</h2>
+          <p class="subtitle">
+            هذا الوحش لا يحتاج أن يلاحقك… يكفيه أنك صدّقته.
+          </p>
+
+          <div class="tagrow">
+            <span class="tag"><strong>الكود:</strong> Monster-05</span>
+            <span class="tag"><strong>الفئة:</strong> وحوش الشلل النفسي</span>
+            <span class="tag"><strong>الخطر:</strong> عالي</span>
+            <span class="tag"><strong>يقتل:</strong> البداية</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3 class="secTitle">📌 تعريف سريع</h3>
+          <div class="kv">
+            <div class="k">مهمته الأساسية</div>
+            <div class="v">شلّ الإرادة قبل أن تبدأ، وتحويل أي خطوة إلى احتمال كارثة.</div>
+          </div>
+          <div class="kv">
+            <div class="k">منطقته بمدينة الفشل</div>
+            <div class="v">ساحة الجدار الأسود</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3 class="secTitle">🧾 2) وصفه بمدينة الفشل</h3>
+          <p class="v">
+            العملاق ليس كائنًا بالمعنى المعتاد… هو جدار حي.
+            طوله لا يُقاس، لأنك كلما رفعت رأسك للأعلى اكتشفت أن السماء نفسها جزء من جسده.
+            جلده أسود غير لامع كالفحم، وعيناه فراغان. لا يتكلم ولا يهدد.
+            فقط يقف… لكن قلبك هو الذي يقترب منه رغماً عنك.
+          </p>
+        </div>
+
+        <div class="section">
+          <h3 class="secTitle">📚 5) سيرته الشخصية (نماذج مشهورة)</h3>
+          <ul class="list">
+            <li><strong>ليوناردو دافنشي:</strong> أخّر إخراج أعمال كثيرة خوفًا من السخرية أو عدم الكمال.</li>
+            <li><strong>فرانز كافكا:</strong> طلب حرق كتاباته بعد موته لأنه لم يثق أنها تستحق الحياة.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h3 class="secTitle">🧠 6) ماذا يدمر من عناصر الذات الأساسية؟</h3>
+          <div class="chips">
+            <span class="chip bad">العقل</span>
+            <span class="chip bad">الجسد</span>
+            <span class="chip bad">النفس</span>
+            <span class="chip warn">الروح (يحاصرها ولا يقتلها مباشرة)</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3 class="secTitle">🧩 7) ماذا يدمر من عناصر الذات الفرعية؟</h3>
+          <div class="chips">
+            <span class="chip bad">القلب</span>
+            <span class="chip bad">الفؤاد</span>
+            <span class="chip bad">الضمير</span>
+            <span class="chip bad">المخ (النفعي/المادي)</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3 class="secTitle">🌍 8) ماذا يدمر من المجالات البيئية؟</h3>
+          <div class="chips">
+            <span class="chip bad">الطاقة الإيجابية</span>
+            <span class="chip bad">الزمان</span>
+            <span class="chip warn">الاتجاه (يرعبه)</span>
+            <span class="chip warn">المادة (يمنع الوصول لها)</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3 class="secTitle">🏢 9) أين يكون الأخطر عمليًا؟</h3>
+          <ul class="list">
+            <li>بدء مشروع جديد</li>
+            <li>نشر فكرة أو منتج</li>
+            <li>طلب تمويل أو مقابلة مستثمر</li>
+            <li>الظهور أمام الجمهور</li>
+            <li>رفع سعر خدمتك</li>
+            <li>التسويق لنفسك</li>
+            <li>قرارات مصيرية: (زواج / هجرة / تغيير وظيفة)</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h3 class="secTitle">⚔️ 10) خطة مواجهته / الأسلحة المضادة</h3>
+          <ul class="list">
+            <li><strong>سلاح التجزئة:</strong> تحويل المشروع إلى خطوة واحدة صغيرة.</li>
+            <li><strong>سلاح الحقيقة العارية:</strong> كتابة أسوأ سيناريو ممكن ومواجهته.</li>
+            <li><strong>سلاح الشاهد:</strong> وجود شخص واحد يراك تتحرك.</li>
+            <li><strong>سلاح الإقدام قبل الثقة:</strong> الثقة نتيجة الفعل وليست شرطًا له.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h3 class="secTitle">🛡️ 11) الدروع المناسبة ضد هجماته</h3>
+          <ul class="list">
+            <li><strong>درع الالتزام اليومي:</strong> حتى لو 15 دقيقة.</li>
+            <li><strong>درع خطة B:</strong> الخوف يحب “مفيش بديل”.</li>
+            <li><strong>درع تسجيل الإنجاز:</strong> دفتر خطوات صغيرة.</li>
+            <li><strong>درع البيئة الآمنة:</strong> تقليل المحبطين والسامين.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <aside class="card">
+        <div class="monsterImg">
+          <img src="../images/monster-05.png" alt="الوحش الخامس: العملاق – الخوف">
+          <div class="imgOverlay"></div>
+          <div class="imgCaption">
+            <div>
+              <div class="name">العملاق</div>
+              <div style="font-size:12px;color:rgba(255,255,255,.85)">الخوف</div>
+            </div>
+            <div class="code">Monster-05</div>
+          </div>
+        </div>
+
+        <div class="pad">
+          <h3 class="secTitle">🧭 ملاحظة مهمة</h3>
+          <p class="v" style="color:var(--muted)">
+            لو لم تظهر الصورة، تأكد أن اسمها داخل فولدر images هو:
+            <strong>monster-05.png</strong>
+          </p>
+
+          <div class="kv">
+            <div class="k">أقوى نقطة ضعف فيه</div>
+            <div class="v">الخطوة الصغيرة اليومية</div>
+          </div>
+
+          <div class="kv">
+            <div class="k">علامته عند الضحية</div>
+            <div class="v">"أنا مش جاهز… خليني أأجل"</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      © مدينة الفشل — موسوعة الوحوش | صفحة Monster-05
+    </footer>
+
+  </div>
+<script>
+(function(){
+  function homeTarget(){
+    if (location.pathname.includes('/monsters/')) return '../index.html';
+    return 'index.html';
+  }
+  function bind(){
+    document.querySelectorAll('a[data-home="1"], button[data-home="1"]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        location.href = homeTarget();
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
+</body>
+</html>

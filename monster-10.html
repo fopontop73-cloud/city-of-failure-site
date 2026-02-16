@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>الوحش 10 — الداعم (الملاك الكاذب) | City of Failure</title>
+  <meta name="description" content="صفحة موسوعية عن وحش الداعم (الملاك الكاذب) في مدينة الفشل: وصفه، مهمته، ماذا يدمر، وأسلحة مواجهته." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1620;
+      --muted:#a9b4c0;
+      --text:#e9eef5;
+      --line:#1e2a38;
+      --accent:#7ee7ff;
+      --danger:#ff5c7a;
+      --ok:#7CFFB2;
+      --gold:#ffcc66;
+      --vio:#caa6ff;
+    }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial;
+      background: radial-gradient(1200px 700px at 80% 0%, rgba(126,231,255,.12), transparent 60%),
+                  radial-gradient(900px 500px at 10% 20%, rgba(255,92,122,.10), transparent 55%),
+                  radial-gradient(900px 520px at 50% 70%, rgba(202,166,255,.10), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.9;
+    }
+    header{
+      padding:28px 16px 10px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .crumb{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:10px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size: 30px;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      color:var(--muted);
+      margin:0 0 18px;
+      font-size: 16px;
+    }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+    }
+    @media (max-width: 900px){
+      .wrap{ grid-template-columns: 1fr; }
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 30%),
+                  var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.25);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      color: var(--accent);
+    }
+    .kv{
+      display:grid;
+      grid-template-columns: 180px 1fr;
+      gap:10px 14px;
+    }
+    @media (max-width: 520px){
+      .kv{ grid-template-columns: 1fr; }
+    }
+    .k{
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .v{
+      color: var(--text);
+      font-size: 15px;
+    }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      margin: 4px 6px 0 0;
+      font-size: 13px;
+      color: var(--text);
+      background: rgba(255,255,255,.02);
+    }
+    .pill.bad{ border-color: rgba(255,92,122,.35); }
+    .pill.good{ border-color: rgba(124,255,178,.35); }
+    .pill.warn{ border-color: rgba(255,204,102,.35); }
+    .pill.vio{ border-color: rgba(202,166,255,.35); }
+    .imgbox{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#05070a;
+      aspect-ratio: 16/10;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position: relative;
+    }
+    .imgbox img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.05) saturate(1.05);
+    }
+    .badge{
+      position:absolute;
+      left:12px;
+      top:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.12);
+      font-size: 12px;
+      color: var(--gold);
+      backdrop-filter: blur(6px);
+    }
+    .note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:10px;
+    }
+    .quote{
+      border-right: 4px solid rgba(202,166,255,.55);
+      padding: 10px 14px;
+      margin: 12px 0 0;
+      background: rgba(255,255,255,.02);
+      border-radius: 14px;
+      color: var(--text);
+      font-style: italic;
+    }
+    .danger{
+      color: var(--danger);
+      font-weight: 800;
+    }
+    .law{
+      margin-top: 10px;
+      padding: 14px;
+      border-radius: 16px;
+      border:1px solid rgba(202,166,255,.18);
+      background: rgba(202,166,255,.06);
+    }
+    footer{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="crumb">City of Failure ⟵ الوحوش ⟵ الوحش 10</div>
+  <h1>الوحش 10 — الداعم (أخطر ملاك كاذب)</h1>
+  <p class="subtitle">
+    وحش مؤدّب… مبتسم… ذكي…  
+    لكنه لا يقتل حلمك… بل يجعله <b>مستحيل التنفيذ</b>.
+  </p>
+</header>
+
+<section class="wrap">
+
+  <!-- العمود الرئيسي -->
+  <div class="card">
+    <h2>1) اسم الوحش</h2>
+    <div class="kv">
+      <div class="k">الاسم الرسمي</div>
+      <div class="v">الداعم</div>
+
+      <div class="k">اللقب الأشهر</div>
+      <div class="v">الملاك الكاذب</div>
+
+      <div class="k">التصنيف</div>
+      <div class="v">وحش تضخيم / تعقيد / هندسة فشل</div>
+
+      <div class="k">الرتبة</div>
+      <div class="v"><span class="danger">خطير جدًا</span> — لأنه يهاجمك وأنت تظنه “مساعدًا”</div>
+    </div>
+
+    <div class="quote">
+      “فكرة رائعة!  
+      بس… ما تيجي نخليها 3 أفكار؟  
+      طب ما تيجي نضيف كمان 7 إضافات؟”
+    </div>
+  </div>
+
+  <!-- صورة -->
+  <aside class="card">
+    <h2>صورة الوحش</h2>
+    <div class="imgbox">
+      <span class="badge">⚠️ أخطر ملاك كاذب</span>
+      <img src="../images/monster-10.png" alt="وحش الداعم — الملاك الكاذب" />
+    </div>
+    <div class="note">
+      ضع الصورة داخل مجلد <b>images</b> باسم: <b>monster-10.jpg</b>
+    </div>
+  </aside>
+
+  <div class="card">
+    <h2>2) وصفه بمدينة الفشل</h2>
+    <p class="v">
+      الداعم لا يأتي كوحش.
+      <br/><br/>
+      يأتي كـ <b>شخص محترم</b>.
+      كـ <b>مستشار</b>.
+      كـ <b>صديق عبقري</b>.
+      كـ <b>ملاك لطيف</b>.
+      <br/><br/>
+      يرتدي بدلة رمادية أنيقة.
+      لا يرفع صوته.
+      لا يهدد.
+      لا يخيف.
+      <br/><br/>
+      يبتسم فقط…
+      ويقول جملة واحدة تشبه السكر:
+      <br/>
+      <span class="danger">"ممتاز… بس نضيف كمان حاجة صغيرة؟"</span>
+      <br/><br/>
+      المشكلة أن “الحاجة الصغيرة”…
+      تتحول خلال دقائق إلى:
+      <br/>
+      مشروع كامل إضافي،
+      أو تغيير جذري،
+      أو مسار جديد،
+      أو خطة تحتاج فريقًا،
+      أو ميزانية،
+      أو سنة زيادة.
+      <br/><br/>
+      هو وحش لا يمسكك من رقبتك…
+      بل يمسكك من <b>طموحك</b>.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>3) مهمته الأساسية</h2>
+    <p class="v">
+      مهمته الأساسية هي:
+      <b>رفع سقف المشروع لدرجة لا يستطيعها بشر</b>.
+      <br/><br/>
+      لأنه يعرف سرًا خطيرًا:
+      <br/>
+      <span class="danger">أكثر المشاريع تموت… ليست بسبب الفشل… بل بسبب “الكمال الزائد”.</span>
+      <br/><br/>
+      الداعم لا يقول لك “لا تعمل”.
+      هو يقول لك:
+      <br/>
+      “اعمل… لكن اعملها مستحيلة.”
+    </p>
+
+    <div class="law">
+      <div class="v">
+        <b>قانون الداعم داخل المدينة:</b><br/>
+        كل “إضافة لطيفة” = 10% تعقيد<br/>
+        10 إضافات = 200% تعقيد<br/>
+        ثم المشروع ينهار… وأنت لا تفهم لماذا.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>4) اسم منطقته بمدينة الفشل</h2>
+    <div class="kv">
+      <div class="k">اسم المنطقة</div>
+      <div class="v">ممرّ التحسينات اللانهائية</div>
+
+      <div class="k">وصفها</div>
+      <div class="v">
+        شارع طويل جدًا…
+        كل خطوة فيه تعني “تطوير”.
+        لكنك لا تصل أبدًا لنهاية الطريق.
+        <br/>
+        لأن الطريق نفسه يتطاول كلما مشيت.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>5) سيرته الشخصية (نماذج مشهورة دمرها هذا الوحش في بداياتها)</h2>
+    <p class="v">
+      الداعم هو الذي قتل آلاف المشاريع الناشئة…
+      ودفن آلاف الكتب…
+      وأوقف آلاف القنوات…
+      <br/><br/>
+      لأنه يظهر في صورة:
+      <b>الناصح</b>، أو <b>الخبير</b>، أو <b>الزميل</b>، أو <b>الناقد المحب</b>.
+    </p>
+
+    <p class="v">
+      <b>نماذج شهيرة نجت منه:</b>
+    </p>
+
+    <div class="v">
+      <span class="pill">ستيف جوبز (حذف بدل إضافة)</span>
+      <span class="pill">مارك زوكربيرج (إطلاق مبكر ثم تطوير)</span>
+      <span class="pill">إيلون ماسك (أول نسخة ثم تحسين)</span>
+      <span class="pill">جيف بيزوس (ابدأ صغيرًا ثم توسع)</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>الفكرة:</b><br/>
+      الناجحون لم ينتصروا لأنهم أضافوا…
+      بل لأنهم عرفوا متى يقولون:
+      <span class="danger">“لا.”</span>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>6) ماذا يدمر من عناصر الذات الأساسية</h2>
+    <div class="v">
+      <span class="pill bad">العقل</span>
+      <span class="pill bad">النفس</span>
+      <span class="pill bad">الروح</span>
+      <span class="pill warn">الجسد (بشكل غير مباشر)</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      • <b>العقل:</b> يحوّل التخطيط إلى متاهة.<br/>
+      • <b>النفس:</b> يزرع شعورًا دائمًا أن ما تفعله “غير كافٍ”.<br/>
+      • <b>الروح:</b> يطفئ الإيمان الداخلي لأنك لا ترى إنجازًا ملموسًا.<br/>
+      • <b>الجسد:</b> يستنزفك لأنك تحمل مشروعًا أكبر من طاقتك.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>7) ماذا يدمر من عناصر الذات الفرعية</h2>
+    <div class="v">
+      <span class="pill bad">المخ (النفعي)</span>
+      <span class="pill bad">القلب</span>
+      <span class="pill bad">الفؤاد</span>
+      <span class="pill bad">الضمير</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      • <b>المخ النفعي:</b> يرفع “التكلفة” حتى تتوقف.<br/>
+      • <b>القلب:</b> يفقد الحماس لأن كل شيء صار ثقيلًا.<br/>
+      • <b>الفؤاد:</b> يضيع الإلهام وسط التفاصيل.<br/>
+      • <b>الضمير:</b> يبدأ يلومك: “أنت لا تنجز… أنت فاشل.”
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>8) ماذا يدمر من المجالات البيئية</h2>
+    <div class="v">
+      <span class="pill bad">الاتجاه</span>
+      <span class="pill bad">المادة</span>
+      <span class="pill bad">الزمان</span>
+      <span class="pill bad">الطاقة الإيجابية</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      • <b>الاتجاه:</b> يحول الطريق إلى متفرعات بلا نهاية.<br/>
+      • <b>المادة:</b> يجعل أدواتك كثيرة ومشاريعك صفر.<br/>
+      • <b>الزمان:</b> يبتلع أيامك في تحسينات غير ضرورية.<br/>
+      • <b>الطاقة:</b> يقتلها لأنك لا ترى نتيجة.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>9) أين يكون الأخطر في المجالات العملية الخارجية</h2>
+    <p class="v">
+      الداعم يكون الأخطر جدًا في:
+    </p>
+
+    <div class="v">
+      <span class="pill">البرمجة (كثرة Features)</span>
+      <span class="pill">تأليف الكتب والروايات</span>
+      <span class="pill">بناء مواقع ومنصات</span>
+      <span class="pill">المشاريع التعليمية والدورات</span>
+      <span class="pill">ريادة الأعمال</span>
+      <span class="pill">الفن (الكمال المفرط)</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      لأنه يهاجم كل شيء يحتاج:
+      <b>نسخة أولى بسيطة</b>…
+      قبل أن يصبح “تحفة”.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>10) خطة مواجهته / الأسلحة المضادة</h2>
+
+    <p class="v">
+      الداعم لا يُهزم بالصراخ…
+      بل يُهزم بـ <b>قاعدة واحدة</b>:
+      <br/>
+      <span class="danger">“أول نسخة يجب أن تكون ناقصة.”</span>
+    </p>
+
+    <div class="v">
+      <span class="pill good">سلاح: نسخة أولى MVP</span>
+      <span class="pill good">سلاح: قائمة “لن أفعل”</span>
+      <span class="pill good">سلاح: إطلاق سريع ثم تطوير</span>
+      <span class="pill good">سلاح: هدف واحد في كل مرحلة</span>
+      <span class="pill good">سلاح: حذف لا إضافة</span>
+      <span class="pill good">سلاح: موعد نهائي غير قابل للنقاش</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>أقوى سلاح:</b><br/>
+      أن تقول للداعم:
+      <br/>
+      “فكرتك ممتازة… لكن ليس الآن.”
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>11) الدروع المناسبة ضد هجماته</h2>
+
+    <p class="v">
+      الداعم يهاجمك من باب “التحسين”.
+      لذلك الدروع تكون:
+      <b>حدود واضحة</b>.
+    </p>
+
+    <div class="v">
+      <span class="pill good">درع: ورقة نطاق المشروع (Scope)</span>
+      <span class="pill good">درع: جدول زمني بسيط</span>
+      <span class="pill good">درع: 3 ميزات فقط في النسخة الأولى</span>
+      <span class="pill good">درع: إغلاق باب الاقتراحات مؤقتًا</span>
+      <span class="pill good">درع: تقييم أسبوعي لا يومي</span>
+      <span class="pill good">درع: “لو لم يخدم الهدف.. يُحذف”</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>ملحوظة قاتلة:</b><br/>
+      الداعم أحيانًا يكون “صوتك أنت”.
+      ليس شخصًا خارجيًا.
+      <br/>
+      لذلك أقوى درع:
+      <span class="danger">أن تلتزم بخطة… حتى لو لم تكن مثالية.</span>
+    </p>
+  </div>
+
+</section>
+
+<footer>
+  © City of Failure — Monster Encyclopedia (Arabic Edition)
+</footer>
+
+<script>
+(function(){
+  function homeTarget(){
+    if (location.pathname.includes('/monsters/')) return '../index.html';
+    return 'index.html';
+  }
+  function bind(){
+    document.querySelectorAll('a[data-home="1"], button[data-home="1"]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        location.href = homeTarget();
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
+</body>
+</html>

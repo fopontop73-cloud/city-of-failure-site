@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>وحش العنكبوت (اللبس الفلسفي) | مدينة الفشل</title>
+  <meta name="description" content="الصفحة الموسوعية لوحش العنكبوت (اللبس الفلسفي) في مدينة الفشل: الوصف، المهمة، ما يدمره داخليًا، خطة المواجهة والدروع." />
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#111a2b;
+      --card2:#0f1726;
+      --text:#e9eefc;
+      --muted:#b8c4e6;
+      --line:rgba(255,255,255,.08);
+      --accent:#7aa2ff;
+      --danger:#ff6b6b;
+      --ok:#5dffb0;
+      --warn:#ffd166;
+      --violet:#c7a6ff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 80% 10%, rgba(199,166,255,.16), transparent 60%),
+                  radial-gradient(900px 600px at 10% 30%, rgba(122,162,255,.12), transparent 60%),
+                  radial-gradient(900px 600px at 40% 90%, rgba(255,107,107,.08), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.75;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      padding:24px 16px 10px;
+      border-bottom:1px solid var(--line);
+      background: linear-gradient(to bottom, rgba(255,255,255,.03), transparent);
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:0 14px}
+    .topbar{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .hero{
+      padding:18px 0 22px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), transparent 40%),
+                  var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+    .title{
+      font-size:26px;
+      margin:0 0 6px;
+      font-weight:900;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .imgbox{
+      background: var(--card2);
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+    .imgbox img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .imgcap{
+      padding:12px 14px;
+      color:var(--muted);
+      font-size:14px;
+      border-top:1px solid var(--line);
+    }
+    main{padding:18px 0 40px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .kvs{
+      display:grid;
+      grid-template-columns: 170px 1fr;
+      gap:10px 12px;
+      margin:0;
+    }
+    @media (max-width:520px){
+      .kvs{grid-template-columns:1fr}
+    }
+    .k{
+      color:var(--muted);
+      font-weight:700;
+      padding-top:2px;
+    }
+    .v{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px 12px;
+    }
+    ul{margin:0; padding:0 18px}
+    li{margin:6px 0}
+    .tag{
+      display:inline-flex; align-items:center;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:13px;
+      margin:4px 6px 0 0;
+    }
+    .tag.danger{color:#ffd1d1; border-color:rgba(255,107,107,.35); background:rgba(255,107,107,.10)}
+    .tag.warn{color:#ffe7b3; border-color:rgba(255,209,102,.35); background:rgba(255,209,102,.08)}
+    .tag.ok{color:#c9ffe5; border-color:rgba(93,255,176,.35); background:rgba(93,255,176,.08)}
+    .tag.violet{color:#eadbff; border-color:rgba(199,166,255,.35); background:rgba(199,166,255,.10)}
+    .quote{
+      border-right:4px solid rgba(199,166,255,.55);
+      padding:10px 12px;
+      margin:0;
+      background: rgba(199,166,255,.07);
+      border-radius:14px;
+      color:var(--text);
+      font-weight:700;
+    }
+    .footer{
+      padding:18px 0 30px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:800;
+    }
+    .btn:hover{background: rgba(255,255,255,.06); text-decoration:none}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span style="font-size:18px">🕸️</span>
+        <span>مدينة الفشل — موسوعة الوحوش</span>
+      </div>
+      <div class="pill">Monster-12 • وحش العنكبوت</div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1 class="title">وحش العنكبوت (اللبس الفلسفي)</h1>
+        <p class="subtitle">
+          الوحش الأخير… الأعظم… الأكثر خبثًا: لا يهاجمك مباشرة، بل ينسج خيوطًا بين المعاني حتى تختفي الحدود.
+        </p>
+
+        <div class="btnrow">
+          <a class="btn" href="index.html" data-home="1">⬅ العودة للصفحة الرئيسية</a>
+          <a class="btn" href="monster-11.html">⟵ الوحش السابق</a>
+        </div>
+
+        <div style="margin-top:14px">
+          <p class="quote">
+            "هذا الوحش لا يقتله عقلك… لأنه يدمر عقلك بالفلسفة."
+          </p>
+        </div>
+      </div>
+
+      <div class="imgbox">
+        <img src="../images/monster-12.png" alt="وحش العنكبوت - اللبس الفلسفي" />
+        <div class="imgcap">
+          الصورة: <b>monster-12.png</b> داخل مجلد <b>images</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+
+      <!-- 1 -->
+      <section class="card">
+        <h2>1) الاسم الرسمي</h2>
+        <dl class="kvs">
+          <div class="k">اسم الوحش</div>
+          <div class="v"><b>وحش العنكبوت</b></div>
+
+          <div class="k">الاسم الرمزي</div>
+          <div class="v">اللبس الفلسفي / خلط المعاني</div>
+
+          <div class="k">المرتبة</div>
+          <div class="v"><b>الوحش النهائي</b> (Boss) — صانع الضباب الأخير.</div>
+        </dl>
+      </section>
+
+      <!-- 2 -->
+      <section class="card">
+        <h2>2) وصفه داخل مدينة الفشل</h2>
+        <div class="v">
+          <p style="margin:0 0 10px">
+            لا يظهر كعنكبوت عادي… بل ككيان هائل  
+            نصفه ظل، ونصفه كتابة متحركة.
+          </p>
+          <p style="margin:0 0 10px">
+            أطرافه ليست أرجلًا… بل <b>أسئلة</b>.  
+            وكل خطوة منه تترك وراءها خيطًا شفافًا يربط شيئين لا يجب أن يرتبطا.
+          </p>
+          <p style="margin:0">
+            عيناه مثل عدستين:
+            <b>تجعلك ترى التشابه… بدل أن ترى الفرق.</b>
+          </p>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="card">
+        <h2>3) مهمته الأساسية</h2>
+        <div class="v">
+          <p style="margin:0 0 10px">
+            مهمة وحش العنكبوت هي:
+            <b>تحويل العالم إلى كتلة واحدة</b>.
+          </p>
+          <p style="margin:0">
+            لأنه يعرف الحقيقة المرعبة:
+            <b>النجاح يحتاج حدودًا.</b>  
+            حدود بين:
+          </p>
+          <ul>
+            <li>الحلم والهدف</li>
+            <li>الشغف والهوى</li>
+            <li>التطوير والتشتت</li>
+            <li>التواضع والجلد الذاتي</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="card">
+        <h2>4) اسم منطقته في مدينة الفشل</h2>
+        <dl class="kvs">
+          <div class="k">اسم المنطقة</div>
+          <div class="v"><b>شبكة المعاني</b></div>
+
+          <div class="k">طبيعتها</div>
+          <div class="v">
+            مكتبة بلا أبواب…  
+            كل كتاب يفتح كتابًا…  
+            وكل معنى يسحب معنى…  
+            حتى تنسى لماذا بدأت القراءة أصلًا.
+          </div>
+        </dl>
+      </section>
+
+      <!-- 5 -->
+      <section class="card">
+        <h2>5) سيرته الشخصية (نماذج مشهورة دمرها)</h2>
+        <div class="v">
+          <p style="margin:0 0 10px">
+            هذا الوحش يدمّر:
+            <b>المفكرين والمثقفين والمبدعين</b> أكثر من أي شخص آخر.
+          </p>
+
+          <ul>
+            <li>
+              <b>مفكرون</b> قضوا حياتهم في تعريف "ما هو المعنى؟" ولم يعيشوا معنى واحدًا.
+            </li>
+            <li>
+              <b>كتّاب</b> ظلوا يعيدون صياغة الفكرة… حتى ماتت الرواية قبل أن تُكتب.
+            </li>
+            <li>
+              <b>عباقرة</b> يملكون كل الأدوات… لكنهم فقدوا "البوصلة" لأن كل شيء صار قابلًا للنقاش.
+            </li>
+          </ul>
+
+          <p style="margin:10px 0 0; color:var(--muted)">
+            وحش العنكبوت لا يحاربك في السوق…  
+            يحاربك في <b>قاموسك الداخلي</b>.
+          </p>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="card">
+        <h2>6) ماذا يدمر من عناصر الذات الأساسية</h2>
+        <div class="v">
+          <div class="tag danger">العقل (بالدرجة الأولى)</div>
+          <div class="tag warn">النفس</div>
+          <div class="tag warn">الروح</div>
+          <div class="tag ok">الجسد (غير مباشر)</div>
+
+          <ul style="margin-top:10px">
+            <li><b>العقل:</b> لا يكسّره… بل يجعله يشك في كل شيء حتى يشلّ نفسه.</li>
+            <li><b>النفس:</b> تكره ذاتها لأنها لا تعرف هل هي على الطريق أم لا.</li>
+            <li><b>الروح:</b> تتوه لأنها فقدت اليقين البسيط.</li>
+            <li><b>الجسد:</b> يتحول إلى "حامل رأس" فقط… بلا فعل ولا حركة.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section class="card">
+        <h2>7) ماذا يدمر من عناصر الذات الفرعية</h2>
+        <div class="v">
+          <div class="tag danger">الفؤاد</div>
+          <div class="tag danger">القلب</div>
+          <div class="tag warn">الضمير</div>
+          <div class="tag warn">المخ (النفعي)</div>
+
+          <ul style="margin-top:10px">
+            <li><b>الفؤاد:</b> يطفئ الإلهام لأنه يحوّل الإشارة إلى "سؤال".</li>
+            <li><b>القلب:</b> يفقد البهجة… لأن البهجة تحتاج بساطة.</li>
+            <li><b>الضمير:</b> يصبح جلادًا: "أنت جاهل لأنك متأكد".</li>
+            <li><b>المخ:</b> يبرر لك عدم الإنجاز: "أنا في مرحلة بناء نظرية".</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section class="card">
+        <h2>8) ماذا يدمر من المجالات البيئية</h2>
+        <div class="v">
+          <div class="tag danger">الاتجاه</div>
+          <div class="tag danger">الزمان</div>
+          <div class="tag warn">الطاقة الإيجابية</div>
+          <div class="tag warn">المادة</div>
+
+          <ul style="margin-top:10px">
+            <li><b>الاتجاه:</b> يمحوه تمامًا لأن الحدود تذوب.</li>
+            <li><b>الزمان:</b> يبتلعه عبر "نقاش لا ينتهي".</li>
+            <li><b>الطاقة الإيجابية:</b> تتحول إلى تعب ذهني.</li>
+            <li><b>المادة:</b> يكرهها… لأن المادة = نتيجة، وهو يعيش على اللا-نتيجة.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 9 -->
+      <section class="card">
+        <h2>9) أين يكون الأخطر عمليًا</h2>
+        <div class="v">
+          <ul>
+            <li><b>بناء الهوية:</b> من أنا؟ ماذا أريد؟ لماذا؟</li>
+            <li><b>التأليف:</b> كتابة رواية / منهج / دورة تدريبية.</li>
+            <li><b>البراند الشخصي:</b> لأن البراند يحتاج وضوحًا لا فلسفة.</li>
+            <li><b>الرسالة التعليمية:</b> عندما يتحول التعليم إلى جدل لا أثر له.</li>
+            <li><b>المشاريع الكبرى:</b> لأن العنكبوت يكره المشاريع التي تقترب من الاكتمال.</li>
+          </ul>
+          <p style="margin:10px 0 0">
+            وحش العنكبوت يظهر غالبًا <b>قبل الانتصار النهائي مباشرة</b>…
+            لأنك حينها تصبح قريبًا جدًا من الحقيقة.
+          </p>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section class="card">
+        <h2>10) خطة مواجهته / الأسلحة المضادة</h2>
+        <div class="v">
+          <p style="margin:0 0 10px">
+            هذا الوحش لا يُهزم بالقوة…  
+            يُهزم بـ <b>التحديد</b>.
+          </p>
+
+          <p style="margin:0 0 10px"><b>الأسلحة المضادة:</b></p>
+          <ul>
+            <li>
+              <b>سلاح التعريف القاطع:</b>  
+              ضع تعريفًا واحدًا لكل كلمة في مشروعك… ولا تسمح بتغييره أثناء التنفيذ.
+            </li>
+            <li>
+              <b>سلاح الحدود:</b>  
+              جملة: <b>“هذا ليس موضوعي الآن.”</b>
+            </li>
+            <li>
+              <b>سلاح القاموس الخاص:</b>  
+              صفحة واحدة فيها معانيك أنت: (حلم/هدف/شغف/هوى/طموح…)
+            </li>
+            <li>
+              <b>سلاح الإنجاز المادي:</b>  
+              كل يوم: شيء ملموس واحد (صفحة، فيديو، تصميم، درس…).
+            </li>
+            <li>
+              <b>سلاح السؤال القاتل:</b>  
+              <b>“هل هذا يقرّبني من المنتج النهائي؟”</b>
+              إن لم يفعل… فهو خيط عنكبوت.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 11 -->
+      <section class="card">
+        <h2>11) الدروع المناسبة ضد هجماته</h2>
+        <div class="v">
+          <p style="margin:0 0 10px">
+            دروع العنكبوت ليست "معلومات"…  
+            لأن العنكبوت يتغذى على المعلومات.
+          </p>
+
+          <ul>
+            <li>
+              <b>درع البساطة:</b>  
+              قلها ببساطة: <b>أنا أريد كذا.</b>
+            </li>
+            <li>
+              <b>درع الجملة الواحدة:</b>  
+              كل مشروع يجب أن يُقال في سطر واحد.
+            </li>
+            <li>
+              <b>درع المنهج:</b>  
+              اتبع خطوات ثابتة حتى لو لم تكن مثالية.
+            </li>
+            <li>
+              <b>درع الواقع:</b>  
+              اسأل شخصًا خارجيًا: "هل فهمت ما أريد؟"
+            </li>
+            <li>
+              <b>درع الطقوس:</b>  
+              طقس يومي ثابت: ساعة عمل… بدون نقاش، بدون فلسفة.
+            </li>
+          </ul>
+
+          <p style="margin:10px 0 0; color:var(--muted)">
+            وحش العنكبوت يموت عندما تتوقف عن محاولة "فهم كل شيء"  
+            وتبدأ في <b>صناعة شيء</b>.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="card" style="margin-top:14px">
+      <h2>ملخص سريع (للقارئ المستعجل)</h2>
+      <div class="v">
+        <ul>
+          <li><b>الاسم:</b> وحش العنكبوت (اللبس الفلسفي)</li>
+          <li><b>منطقته:</b> شبكة المعاني</li>
+          <li><b>أخطر ما يدمره:</b> العقل + الاتجاه</li>
+          <li><b>السلاح الأقوى ضده:</b> التعريف القاطع + إنجاز مادي يومي</li>
+          <li><b>النتيجة لو كسب:</b> تتحول العبقرية إلى ضباب… وتضيع البوصلة.</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<div class="footer">
+  <div class="wrap">
+    © مدينة الفشل — موسوعة الوحوش (مشروع حسن حجازي) • صفحة: Monster-12
+  </div>
+</div>
+<script>
+(function(){
+  function homeTarget(){
+    if (location.pathname.includes('/monsters/')) return '../index.html';
+    return 'index.html';
+  }
+  function bind(){
+    document.querySelectorAll('a[data-home="1"], button[data-home="1"]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        location.href = homeTarget();
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
+</body>
+</html>
