@@ -44,6 +44,27 @@ function escapeHTML(str) {
     .replaceAll("'", "&#039;");
 }
 
+
+// جلب JSON مع رسالة خطأ واضحة (لو رجع HTML مثل صفحة تسجيل دخول)
+async function fetchJsonOrThrow(url, options) {
+  const res = await fetch(url, options);
+  const ct = (res.headers.get("content-type") || "").toLowerCase();
+  const raw = await res.text();
+
+  if (!ct.includes("application/json")) {
+    const sample = raw.slice(0, 120).replace(/\s+/g, " ");
+    throw new Error("Non-JSON response: " + sample);
+  }
+
+  let data;
+  try {
+    data = JSON.parse(raw);
+  } catch {
+    throw new Error("Invalid JSON");
+  }
+  return data;
+}
+
 // =========================================================
 // 3) رسم أعمدة بسيط (Canvas) بدون مكتبات
 // =========================================================
@@ -122,6 +143,39 @@ function drawBarChart(canvasId, labels, values) {
   ctx.fillText("الأخطر حسب تصويت الزائرين", W - 18, 22);
 }
 
+
+// طلب JSONP لتفادي مشاكل CORS مع Apps Script
+function jsonpRequest(url, timeoutMs = 12000) {
+  return new Promise((resolve, reject) => {
+    const cb = "__cof_cb_" + Date.now() + "_" + Math.floor(Math.random()*1e6);
+    const script = document.createElement("script");
+    const timer = setTimeout(() => {
+      cleanup();
+      reject(new Error("JSONP timeout"));
+    }, timeoutMs);
+
+    function cleanup() {
+      clearTimeout(timer);
+      try { delete window[cb]; } catch { window[cb] = undefined; }
+      script.remove();
+    }
+
+    window[cb] = (data) => {
+      cleanup();
+      resolve(data);
+    };
+
+    const sep = url.includes("?") ? "&" : "?";
+    script.src = url + sep + "callback=" + encodeURIComponent(cb);
+    script.onerror = () => {
+      cleanup();
+      reject(new Error("JSONP load error"));
+    };
+
+    document.head.appendChild(script);
+  });
+}
+
 // =========================================================
 // 4) بناء قائمة الوحوش + البطاقات
 // =========================================================
@@ -184,7 +238,16 @@ async function submitSurvey(e) {
   }
 
   try {
-    // نستخدم GET لتفادي مشاكل CORS
+    // متوافق مع Code.gs: الإرسال يكون POST JSON
+    const payload = {
+      action: "submit",
+      name,
+      age,
+      status,
+      monster,
+      story,
+    };
+
     const params = new URLSearchParams({
       action: "submit",
       name,
@@ -194,12 +257,10 @@ async function submitSurvey(e) {
       story,
       ts: new Date().toISOString(),
     });
+    const data = await jsonpRequest(`${APPS_SCRIPT_URL}?${params.toString()}`);
 
-    const res = await fetch(`${APPS_SCRIPT_URL}?${params.toString()}`);
-    const data = await res.json();
-
-    if (data.status !== "success") {
-      throw new Error(data.message || "حدث خطأ غير معروف.");
+    if (!data.ok) {
+      throw new Error(data.error || "حدث خطأ غير معروف.");
     }
 
     alert("تم إرسال إجابتك بنجاح ✅ شكراً لك!");
@@ -229,16 +290,15 @@ async function loadVotesChart() {
   if (loading) loading.style.display = "block";
 
   try {
-    const res = await fetch(`${APPS_SCRIPT_URL}?action=votes`);
-    const data = await res.json();
+    const data = await jsonpRequest(`${APPS_SCRIPT_URL}?action=votes`);
 
-    if (data.status !== "success") throw new Error("Stats failed");
+    if (!data.ok) throw new Error("Stats failed");
 
-    // data.votes: { "1": 5, "2": 10, ... }
-    const votes = data.votes || {};
+    // data.counts: { "1": 5, "2": 10, ... }
+    const counts = data.counts || {};
 
     const labels = MONSTERS.map((m) => String(m.id));
-    const values = MONSTERS.map((m) => Number(votes[String(m.id)] || 0));
+    const values = MONSTERS.map((m) => Number(counts[String(m.id)] || 0));
 
     drawBarChart("votesChart", labels, values);
 
@@ -262,12 +322,19 @@ async function loadVotesChart() {
   } catch (err) {
     console.error(err);
     const topBox = $("#topMonster");
-    if (topBox) topBox.innerHTML = "تعذر تحميل الرسم البياني حالياً.";
+    if (topBox) topBox.innerHTML = "تعذر تحميل الرسم البياني حالياً.<br><small>تأكد من نشر Google Apps Script كـ Web App وإتاحة الوصول: &quot;Anyone&quot;.</small>";
   } finally {
     if (loading) loading.style.display = "none";
   }
 }
 
+
+
+// إعادة رسم الرسم البياني عند تغيير حجم الشاشة
+window.addEventListener("resize", () => {
+  // إعادة تحميل البيانات ثم إعادة الرسم على مقاس جديد
+  loadVotesChart();
+});
 // =========================================================
 // 7) تشغيل الصفحة
 // =========================================================

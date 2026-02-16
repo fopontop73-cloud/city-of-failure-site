@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>صفحة الإدارة | مدينة الفشل</title>
+  <style>
+    :root{
+      --bg:#070a12;
+      --card:#0d1222;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.7);
+      --line:rgba(255,255,255,.12);
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --radius:18px;
+      --danger:#ff5c5c;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Tahoma, sans-serif;
+      background: radial-gradient(1200px 700px at 70% 0%, rgba(200,200,200,.08), transparent 60%),
+                  radial-gradient(900px 500px at 20% 10%, rgba(300,300,300,.05), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+    a{color:inherit}
+    .container{width:min(1100px,92vw);margin:auto;padding:22px 0 60px;}
+    header{padding:18px 0 10px;}
+    h1{margin:0 0 6px;font-size:28px;}
+    .sub{color:var(--muted);font-size:14px;margin:0;}
+
+    .panel{
+      margin-top:16px;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:14px;
+    }
+    label{display:block;font-size:13px;color:rgba(255,255,255,.85);margin:0 0 6px;}
+    input,select{
+      width:100%;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    select option{background:var(--card); color:var(--text);}
+    .row{display:grid;grid-template-columns: 1fr 1fr 1fr; gap:10px;}
+    @media (max-width:850px){.row{grid-template-columns:1fr;}}
+
+    button{
+      padding:12px 14px;
+      border-radius:14px;
+      border:none;
+      background: rgba(255,255,255,.92);
+      color:#000;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+      font-size:14px;
+      width:100%;
+    }
+    button:hover{transform: translateY(-2px);}
+
+    .msg{margin-top:10px;font-size:14px;color:var(--muted)}
+    .msg.err{color:var(--danger)}
+
+    .cards{margin-top:14px;display:grid;grid-template-columns:1fr;gap:12px;}
+    .card{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+    }
+    .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:rgba(255,255,255,.75);font-size:13px;margin-bottom:10px;}
+    .pill{padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.2)}
+    .story{white-space:pre-wrap;font-size:15px;}
+
+    .topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+    .topbar a{color:rgba(255,255,255,.75);text-decoration:none}
+    .small{font-size:12px;color:rgba(255,255,255,.55)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="topbar">
+        <div>
+          <h1>صفحة الإدارة — القصص المُرسلة</h1>
+          <p class="sub">هذه الصفحة تعرض كل القصص المحفوظة في Google Sheet عبر Apps Script.</p>
+        </div>
+        <div class="small"><a href="index.html">العودة للموقع</a></div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="row">
+        <div>
+          <label for="adminKey">مفتاح الإدارة (Admin Key)</label>
+          <input id="adminKey" type="password" placeholder="ضع المفتاح هنا" />
+        </div>
+        <div>
+          <label for="filterMonster">فلترة حسب الوحش</label>
+          <select id="filterMonster">
+            <option value="">الكل</option>
+          </select>
+        </div>
+        <div>
+          <label for="q">بحث في النص</label>
+          <input id="q" type="text" placeholder="كلمة/جملة..." />
+        </div>
+      </div>
+
+      <div class="row" style="grid-template-columns:1fr 1fr 1fr; margin-top:10px">
+        <div>
+          <label for="limit">حد أقصى للتحميل</label>
+          <select id="limit">
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200" selected>200</option>
+            <option value="500">500</option>
+          </select>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <button id="loadBtn" type="button">تحميل القصص</button>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <button id="clearBtn" type="button">مسح الفلاتر</button>
+        </div>
+      </div>
+
+      <div id="status" class="msg">ضع مفتاح الإدارة ثم اضغط "تحميل القصص".</div>
+    </section>
+
+    <section class="panel">
+      <div class="meta">
+        <span class="pill" id="countPill">0 قصة</span>
+        <span class="pill" id="lastPill">—</span>
+      </div>
+      <div id="cards" class="cards"></div>
+    </section>
+
+  </div>
+
+  <script>
+    // نفس رابط الـ Apps Script المستخدم في الموقع (عدّله عند تغيير النشر)
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwX8MQLQreZazVyuu5mIOqgjESmwNJ4N0WaCBIkUR_ch2wQD9Cp1CGuhvgxCDurbQL-FA/exec";
+
+    const MONSTERS = [
+      { id: 1, name: "الراحة اللذيذة" },
+      { id: 2, name: "الببغاء (التقليد)" },
+      { id: 3, name: "الصديق (التأجيل)" },
+      { id: 4, name: "المرأة اللعوب (الهوى)" },
+      { id: 5, name: "العملاق (الخوف)" },
+      { id: 6, name: "السجّان (الماضي)" },
+      { id: 7, name: "التوأم (التسويف)" },
+      { id: 8, name: "الساحر (التشتت)" },
+      { id: 9, name: "القرد (الزمن/الدوبامين)" },
+      { id: 10, name: "وحش الداعم (الملاك الكاذب)" },
+      { id: 11, name: "وحش التردد (الثعبان)" },
+      { id: 12, name: "وحش العنكبوت (الفلسفة)" },
+    ];
+
+    function $(id){ return document.getElementById(id); }
+
+    function jsonpRequest(url, timeoutMs = 15000) {
+      return new Promise((resolve, reject) => {
+        const cb = "__cof_admin_cb_" + Date.now() + "_" + Math.floor(Math.random()*1e6);
+        const script = document.createElement("script");
+        const timer = setTimeout(() => { cleanup(); reject(new Error("JSONP timeout")); }, timeoutMs);
+
+        function cleanup(){
+          clearTimeout(timer);
+          try{ delete window[cb]; }catch{ window[cb]=undefined; }
+          script.remove();
+        }
+
+        window[cb] = (data) => { cleanup(); resolve(data); };
+        const sep = url.includes("?") ? "&" : "?";
+        script.src = url + sep + "callback=" + encodeURIComponent(cb);
+        script.onerror = () => { cleanup(); reject(new Error("JSONP load error")); };
+        document.head.appendChild(script);
+      });
+    }
+
+    function fillMonsterFilter(){
+      const sel = $("filterMonster");
+      MONSTERS.forEach(m => {
+        const o = document.createElement('option');
+        o.value = String(m.id);
+        o.textContent = `#${m.id} — ${m.name}`;
+        sel.appendChild(o);
+      });
+    }
+
+    function monsterName(id){
+      const m = MONSTERS.find(x => String(x.id) === String(id));
+      return m ? `#${m.id} — ${m.name}` : `#${id}`;
+    }
+
+    function render(stories){
+      const cards = $("cards");
+      cards.innerHTML = "";
+
+      for (const s of stories){
+        const el = document.createElement('div');
+        el.className = 'card';
+        const name = (s.name || '').trim() || 'زائر';
+        const age = (s.age || '').trim();
+        const status = (s.status || '').trim();
+        const monster = monsterName(s.monster);
+        const ts = (s.timestamp || '').trim();
+
+        el.innerHTML = `
+          <div class="meta">
+            <span class="pill">${monster}</span>
+            <span class="pill">${name}</span>
+            ${age ? `<span class="pill">العمر: ${age}</span>` : ''}
+            ${status ? `<span class="pill">${status}</span>` : ''}
+            ${ts ? `<span class="pill">${ts}</span>` : ''}
+          </div>
+          <div class="story">${escapeHTML(s.story || '')}</div>
+        `;
+        cards.appendChild(el);
+      }
+
+      $("countPill").textContent = `${stories.length} قصة`;
+      $("lastPill").textContent = stories.length ? 'تم التحديث الآن' : '—';
+    }
+
+    function escapeHTML(str){
+      return String(str)
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'",'&#039;');
+    }
+
+    let ALL = [];
+
+    function applyFilters(){
+      const q = ($("q").value || '').trim().toLowerCase();
+      const monster = $("filterMonster").value;
+      let out = ALL.slice();
+      if (monster) out = out.filter(s => String(s.monster) === String(monster));
+      if (q) out = out.filter(s => (s.story || '').toLowerCase().includes(q) || (s.name || '').toLowerCase().includes(q));
+      render(out);
+    }
+
+    async function loadStories(){
+      const key = ($("adminKey").value || '').trim();
+      const limit = $("limit").value;
+      const status = $("status");
+
+      if (!key){
+        status.className = 'msg err';
+        status.textContent = 'من فضلك أدخل مفتاح الإدارة.';
+        return;
+      }
+
+      status.className = 'msg';
+      status.textContent = '⏳ جاري تحميل القصص...';
+
+      try{
+        const params = new URLSearchParams({ action: 'stories', key, limit });
+        const data = await jsonpRequest(`${APPS_SCRIPT_URL}?${params.toString()}`);
+        if (!data.ok) throw new Error(data.error || 'Unknown');
+        ALL = data.stories || [];
+        status.className = 'msg';
+        status.textContent = `✅ تم تحميل ${ALL.length} قصة.`;
+        applyFilters();
+      }catch(e){
+        status.className = 'msg err';
+        status.textContent = '❌ تعذر تحميل القصص: ' + e.message;
+      }
+    }
+
+    function clearFilters(){
+      $("q").value = '';
+      $("filterMonster").value = '';
+      applyFilters();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fillMonsterFilter();
+      $("loadBtn").addEventListener('click', loadStories);
+      $("clearBtn").addEventListener('click', clearFilters);
+      $("q").addEventListener('input', () => applyFilters());
+      $("filterMonster").addEventListener('change', () => applyFilters());
+    });
+  </script>
+</body>
+</html>
