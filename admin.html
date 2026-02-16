@@ -112,8 +112,34 @@
           </select>
         </div>
         <div>
-          <label for="q">بحث في النص</label>
-          <input id="q" type="text" placeholder="كلمة/جملة..." />
+          <label for="q">بحث متقدم داخل القصص</label>
+          <input id="q" type="text" placeholder="مثال: كلمة | \"عبارة كاملة\" | كلمة1 كلمة2 | -كلمة_مستثناة" />
+          <div class="small" style="margin-top:6px">افتراضيًا يتم البحث بعبارة دقيقة. ضع كلمات مستثناة بالبادئة <b>-</b> مثل: <code>-خوف</code>.</div>
+        </div>
+      </div>
+
+      <div class="row" style="grid-template-columns: 1fr 1fr; margin-top:10px">
+        <div>
+          <label for="searchMode">وضع المطابقة</label>
+          <select id="searchMode">
+            <option value="phrase" selected>مطابقة عبارة دقيقة (Exact Phrase)</option>
+            <option value="all">مطابقة كل الكلمات (AND)</option>
+            <option value="any">مطابقة أي كلمة (OR)</option>
+            <option value="contains">بحث عادي (Contains)</option>
+          </select>
+        </div>
+        <div>
+          <label>خيارات إضافية</label>
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap">
+            <label style="margin:0; display:flex; gap:8px; align-items:center; font-size:13px; color:rgba(255,255,255,.8)">
+              <input id="wholeWord" type="checkbox" checked style="width:auto" />
+              كلمة كاملة
+            </label>
+            <label style="margin:0; display:flex; gap:8px; align-items:center; font-size:13px; color:rgba(255,255,255,.8)">
+              <input id="caseSensitive" type="checkbox" style="width:auto" />
+              حساسية حالة الأحرف
+            </label>
+          </div>
         </div>
       </div>
 
@@ -134,6 +160,10 @@
         <div>
           <label>&nbsp;</label>
           <button id="clearBtn" type="button">مسح الفلاتر</button>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <button id="downloadBtn" type="button">تحميل نسخة احتياطية CSV</button>
         </div>
       </div>
 
@@ -245,14 +275,132 @@
         .replaceAll("'",'&#039;');
     }
 
-    let ALL = [];
+    
+
+    function toCsvValue(v){
+      if (v === null || v === undefined) v = '';
+      v = String(v);
+      // escape quotes and wrap
+      v = v.replaceAll('"','""');
+      return '"' + v + '"';
+    }
+
+    function buildCsv(rows){
+      const header = ['timestamp','name','age','status','monster','story'];
+      const lines = [header.map(toCsvValue).join(',')];
+      for (const r of rows){
+        const line = [
+          r.timestamp || '',
+          r.name || '',
+          r.age || '',
+          r.status || '',
+          r.monster || '',
+          (r.story || '').replace(/
+/g,'
+')
+        ].map(toCsvValue).join(',');
+        lines.push(line);
+      }
+      // UTF-8 BOM for Excel Arabic
+      return '﻿' + lines.join('
+');
+    }
+
+    function downloadCsv(){
+      if (!ALL || !ALL.length){
+        const st = $("status");
+        st.className = 'msg err';
+        st.textContent = 'لا توجد بيانات لتحميلها. قم بتحميل القصص أولاً.';
+        return;
+      }
+
+      const csv = buildCsv(ALL);
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      const dt = new Date();
+      const y = dt.getFullYear();
+      const m = String(dt.getMonth()+1).padStart(2,'0');
+      const d = String(dt.getDate()).padStart(2,'0');
+      a.href = url;
+      a.download = `city-of-failure-backup-${y}-${m}-${d}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      setTimeout(()=>URL.revokeObjectURL(url), 1000);
+    }
+let ALL = [];
 
     function applyFilters(){
-      const q = ($("q").value || '').trim().toLowerCase();
+      const qRaw = ($("q").value || '').trim();
+      const mode = $("searchMode") ? $("searchMode").value : 'phrase';
       const monster = $("filterMonster").value;
+      const wholeWord = $("wholeWord") ? $("wholeWord").checked : false;
+      const caseSensitive = $("caseSensitive") ? $("caseSensitive").checked : false;
+
+      const tokens = [];
+      const reTok = /"([^"]+)"|(\S+)/g;
+      let mm;
+      while ((mm = reTok.exec(qRaw)) !== null) {
+        const t = (mm[1] || mm[2] || '').trim();
+        if (t) tokens.push(t);
+      }
+
+      const include = tokens.filter(t => !t.startsWith('-'));
+      const exclude = tokens.filter(t => t.startsWith('-')).map(t => t.slice(1)).filter(Boolean);
+
+      function norm(s){
+        s = String(s || '');
+        return caseSensitive ? s : s.toLowerCase();
+      }
+
+      function makeWordRe(term){
+        const esc = term.replace(/[.*+?^${}()|[\]\]/g, '\$&');
+        return new RegExp('(^|[\s\p{P}])' + esc + '($|[\s\p{P}])', 'u' + (caseSensitive ? '' : 'i'));
+      }
+
+      function hasTerm(text, term){
+        if (!term) return true;
+        if (wholeWord) return makeWordRe(term).test(text);
+        return norm(text).includes(norm(term));
+      }
+
+      function matchText(text){
+        text = String(text || '');
+
+        for (const x of exclude){
+          if (!x) continue;
+          if (wholeWord) {
+            if (makeWordRe(x).test(text)) return false;
+          } else {
+            if (norm(text).includes(norm(x))) return false;
+          }
+        }
+
+        if (!include.length) return true;
+
+        if (mode === 'phrase'){
+          const phrase = include.join(' ');
+          return hasTerm(text, phrase);
+        }
+
+        if (mode === 'contains'){
+          return include.some(t => hasTerm(text, t));
+        }
+
+        if (mode === 'all'){
+          return include.every(t => hasTerm(text, t));
+        }
+
+        // any
+        return include.some(t => hasTerm(text, t));
+      }
+
       let out = ALL.slice();
       if (monster) out = out.filter(s => String(s.monster) === String(monster));
-      if (q) out = out.filter(s => (s.story || '').toLowerCase().includes(q) || (s.name || '').toLowerCase().includes(q));
+      if (qRaw) out = out.filter(s => matchText(s.story || '') || matchText(s.name || ''));
       render(out);
     }
 
@@ -294,8 +442,12 @@
       fillMonsterFilter();
       $("loadBtn").addEventListener('click', loadStories);
       $("clearBtn").addEventListener('click', clearFilters);
+      $("downloadBtn").addEventListener('click', downloadCsv);
       $("q").addEventListener('input', () => applyFilters());
       $("filterMonster").addEventListener('change', () => applyFilters());
+      $("searchMode")?.addEventListener('change', () => applyFilters());
+      $("wholeWord")?.addEventListener('change', () => applyFilters());
+      $("caseSensitive")?.addEventListener('change', () => applyFilters());
     });
   </script>
 </body>
