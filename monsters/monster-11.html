@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>وحش التردد (الثعبان متعدد الرؤوس) | مدينة الفشل</title>
+  <meta name="description" content="الصفحة الموسوعية لوحش التردد (الثعبان متعدد الرؤوس) في مدينة الفشل: الوصف، المهمة، ما يدمره داخليًا، خطة المواجهة والدروع." />
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#111a2b;
+      --card2:#0f1726;
+      --text:#e9eefc;
+      --muted:#b8c4e6;
+      --line:rgba(255,255,255,.08);
+      --accent:#7aa2ff;
+      --danger:#ff6b6b;
+      --ok:#5dffb0;
+      --warn:#ffd166;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 80% 10%, rgba(122,162,255,.18), transparent 60%),
+                  radial-gradient(900px 600px at 10% 30%, rgba(255,107,107,.10), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.75;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      padding:24px 16px 10px;
+      border-bottom:1px solid var(--line);
+      background: linear-gradient(to bottom, rgba(255,255,255,.03), transparent);
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:0 14px}
+    .topbar{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .hero{
+      padding:18px 0 22px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), transparent 40%),
+                  var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+    .title{
+      font-size:26px;
+      margin:0 0 6px;
+      font-weight:900;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .imgbox{
+      background: var(--card2);
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+    .imgbox img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .imgcap{
+      padding:12px 14px;
+      color:var(--muted);
+      font-size:14px;
+      border-top:1px solid var(--line);
+    }
+    main{padding:18px 0 40px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .kvs{
+      display:grid;
+      grid-template-columns: 170px 1fr;
+      gap:10px 12px;
+      margin:0;
+    }
+    @media (max-width:520px){
+      .kvs{grid-template-columns:1fr}
+    }
+    .k{
+      color:var(--muted);
+      font-weight:700;
+      padding-top:2px;
+    }
+    .v{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px 12px;
+    }
+    ul{margin:0; padding:0 18px}
+    li{margin:6px 0}
+    .tag{
+      display:inline-flex; align-items:center;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:13px;
+      margin:4px 6px 0 0;
+    }
+    .tag.danger{color:#ffd1d1; border-color:rgba(255,107,107,.35); background:rgba(255,107,107,.10)}
+    .tag.warn{color:#ffe7b3; border-color:rgba(255,209,102,.35); background:rgba(255,209,102,.08)}
+    .tag.ok{color:#c9ffe5; border-color:rgba(93,255,176,.35); background:rgba(93,255,176,.08)}
+    .quote{
+      border-right:4px solid rgba(122,162,255,.45);
+      padding:10px 12px;
+      margin:0;
+      background: rgba(122,162,255,.06);
+      border-radius:14px;
+      color:var(--text);
+      font-weight:700;
+    }
+    .footer{
+      padding:18px 0 30px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:800;
+    }
+    .btn:hover{background: rgba(255,255,255,.06); text-decoration:none}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span style="font-size:18px">🏙️</span>
+        <span>مدينة الفشل — موسوعة الوحوش</span>
+      </div>
+      <div class="pill">Monster-11 • وحش التردد</div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1 class="title">وحش التردد (الثعبان متعدد الرؤوس)</h1>
+        <p class="subtitle">
+          الوحش الذي لا يقتلك بضربة… بل يقتلك بـ <b>نزيف القرار</b>.
+        </p>
+
+        <div class="btnrow">
+          <a class="btn" href="index.html">⬅ العودة للصفحة الرئيسية</a>
+          <a class="btn" href="monster-10.html">⟵ الوحش السابق</a>
+          <a class="btn" href="monster-12.html">الوحش التالي ⟶</a>
+        </div>
+
+        <div style="margin-top:14px">
+          <p class="quote">
+            "التردد ليس نقص قرار… التردد = نزيف عمر."
+          </p>
+        </div>
+      </div>
+
+      <div class="imgbox">
+        <img src="images/monster-11.png" alt="وحش التردد - الثعبان متعدد الرؤوس" />
+        <div class="imgcap">
+          الصورة: <b>monster-11.png</b> داخل مجلد <b>images</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+
+      <!-- 1-4 -->
+      <section class="card">
+        <h2>1) الاسم الرسمي</h2>
+        <dl class="kvs">
+          <div class="k">اسم الوحش</div>
+          <div class="v"><b>وحش التردد</b></div>
+
+          <div class="k">الاسم الرمزي</div>
+          <div class="v">الثعبان متعدد الرؤوس</div>
+
+          <div class="k">الصفة</div>
+          <div class="v">أكثر وحوش مدينة الفشل قدرة على "تعطيل التنفيذ" دون ضجيج.</div>
+        </dl>
+      </section>
+
+      <section class="card">
+        <h2>2) وصفه داخل مدينة الفشل</h2>
+        <div class="v">
+          <p style="margin:0 0 10px">
+            يظهر كثعبان ضخم، جلده لامع كأنه مبلل بالزئبق،  
+            لا يزحف… بل <b>ينساب</b> حولك مثل فكرة لا تستطيع الإمساك بها.
+          </p>
+          <p style="margin:0">
+            لكل رأس عينان مختلفتان:
+          </p>
+          <ul>
+            <li>رأس يلمع كأنه "منطق"</li>
+            <li>رأس يلمع كأنه "حكمة"</li>
+            <li>رأس يلمع كأنه "خوف"</li>
+            <li>رأس يلمع كأنه "حرص"</li>
+          </ul>
+          <p style="margin:10px 0 0">
+            وكل رأس يقول شيئًا صحيحًا… لكنهم معًا يصنعون <b>شللًا كاملًا</b>.
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>3) مهمته الأساسية</h2>
+        <div class="v">
+          <p style="margin:0 0 10px">
+            مهمة وحش التردد ليست أن يمنعك من الحلم…  
+            بل أن يمنعك من <b>الاختيار</b>.
+          </p>
+          <p style="margin:0">
+            لأنه يعرف قاعدة المدينة:
+            <b>كل مشروع يبدأ بقرار واحد… وكل قرار يقتل ألف احتمال.</b>
+            وهو لا يريدك أن تقتل الاحتمالات.
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>4) اسم منطقته في مدينة الفشل</h2>
+        <dl class="kvs">
+          <div class="k">اسم المنطقة</div>
+          <div class="v"><b>مستنقع المفاضلات</b></div>
+
+          <div class="k">ملحوظة</div>
+          <div class="v">
+            المكان كله يشبه قاعة اجتماعات لا تنتهي…  
+            أوراق كثيرة… خيارات كثيرة… ونتيجة واحدة: <b>لا شيء يحدث</b>.
+          </div>
+        </dl>
+      </section>
+
+      <!-- 5 -->
+      <section class="card">
+        <h2>5) سيرته الشخصية (نماذج مشهورة دمرها)</h2>
+        <div class="v">
+          <p style="margin:0 0 10px">
+            وحش التردد لا يُعرف بأنه دمّر "أشخاص فاشلين"…  
+            بل دمّر <b>أذكى الناس</b>.
+          </p>
+
+          <ul>
+            <li>
+              <b>مبدعون</b> ظلوا سنوات يختارون اسم المشروع… ولم يبدأوا المشروع.
+            </li>
+            <li>
+              <b>روّاد أعمال</b> ظلوا يدرسون السوق… حتى ماتت الفكرة لأن السوق تغيّر.
+            </li>
+            <li>
+              <b>فنانون</b> ظلوا يبحثون عن "الأسلوب النهائي"… حتى انتهى العمر دون معرض واحد.
+            </li>
+          </ul>
+
+          <p style="margin:10px 0 0; color:var(--muted)">
+            (في الموقع يمكننا لاحقًا إضافة أمثلة عربية/عالمية دقيقة حسب اختيارك،  
+            بدون أي مخاطرة بمعلومة غير موثقة.)
+          </p>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="card">
+        <h2>6) ماذا يدمر من عناصر الذات الأساسية</h2>
+        <div class="v">
+          <div class="tag danger">العقل</div>
+          <div class="tag danger">النفس</div>
+          <div class="tag warn">الجسد</div>
+          <div class="tag warn">الروح</div>
+
+          <ul style="margin-top:10px">
+            <li><b>العقل:</b> يجعله يدور في حلقة "الأفضل" بدل "الممكن".</li>
+            <li><b>النفس:</b> يملؤها بالذنب لأنها لم تبدأ، ثم يبيع لها تبريرًا أنها "حكيمة".</li>
+            <li><b>الجسد:</b> يرهقه بالإجهاد الذهني… فيتحول التنفيذ إلى ألم.</li>
+            <li><b>الروح:</b> يطفئ فيها نور الجرأة؛ فتبدأ تشعر أنك لا تستحق الاختيار.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section class="card">
+        <h2>7) ماذا يدمر من عناصر الذات الفرعية</h2>
+        <div class="v">
+          <div class="tag danger">المخ (النفعي)</div>
+          <div class="tag danger">الضمير</div>
+          <div class="tag warn">القلب</div>
+          <div class="tag warn">الفؤاد</div>
+
+          <ul style="margin-top:10px">
+            <li><b>المخ:</b> يحوّل القرار إلى صفقة خاسرة دائمًا: "لو اخترت… ستخسر".</li>
+            <li><b>الضمير:</b> يجلدك: "كيف تبدأ وأنت غير جاهز؟"</li>
+            <li><b>القلب:</b> يضعفه لأن كثرة الخيارات تقتل الحماس.</li>
+            <li><b>الفؤاد:</b> يشوش الرؤية الرمزية، فتتحول الإشارات إلى ضباب.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section class="card">
+        <h2>8) ماذا يدمر من المجالات البيئية</h2>
+        <div class="v">
+          <div class="tag danger">الزمان</div>
+          <div class="tag warn">الاتجاه</div>
+          <div class="tag warn">الطاقة الإيجابية</div>
+          <div class="tag ok">المادة (جزئيًا)</div>
+
+          <ul style="margin-top:10px">
+            <li><b>الزمان:</b> أخطر نقطة… لأنه يسرقه "بدون إحساس".</li>
+            <li><b>الاتجاه:</b> يجعلك تتحرك في دوائر، لا في خط.</li>
+            <li><b>الطاقة الإيجابية:</b> يستنزفها ببطء حتى تكره مشروعك.</li>
+            <li><b>المادة:</b> لا يدمّرها مباشرة… لكنه يمنعك من تحويل الأفكار إلى منتج.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 9 -->
+      <section class="card">
+        <h2>9) أين يكون الأخطر عمليًا</h2>
+        <div class="v">
+          <ul>
+            <li><b>اختيار المجال المهني:</b> (وظيفة؟ تدريب؟ مشروع؟)</li>
+            <li><b>إطلاق مشروع:</b> اختيار منصة واحدة بدل 10.</li>
+            <li><b>الزواج/الارتباط:</b> لأن القرار فيه نهائي نسبيًا.</li>
+            <li><b>الإبداع:</b> اختيار فكرة واحدة من ألف فكرة.</li>
+            <li><b>التعلم:</b> اختيار كتاب واحد بدل مكتبة كاملة.</li>
+          </ul>
+          <p style="margin:10px 0 0">
+            هذا الوحش يهاجمك بقوة عندما تكون "ذكيًا"  
+            لأنه يعرف أن الذكاء يخلق بدائل أكثر.
+          </p>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section class="card">
+        <h2>10) خطة مواجهته / الأسلحة المضادة</h2>
+        <div class="v">
+          <p style="margin:0 0 10px">
+            مواجهة وحش التردد ليست نقاشًا…  
+            لأن كل نقاش معه = رأس جديد.
+          </p>
+
+          <p style="margin:0 0 10px"><b>الأسلحة المضادة:</b></p>
+          <ul>
+            <li>
+              <b>سلاح القرار المؤقت:</b>  
+              اختر لمدة 7 أيام فقط، وليس للأبد.
+            </li>
+            <li>
+              <b>سلاح "اختيار الأقل ضررًا":</b>  
+              لا تبحث عن الأفضل… ابحث عن "الذي يمكن تنفيذه الآن".
+            </li>
+            <li>
+              <b>سلاح القاعدة الحديدية:</b>  
+              <b>أي قرار لا يُنفَّذ خلال 24 ساعة… يتحول إلى وهم.</b>
+            </li>
+            <li>
+              <b>سلاح خطوة واحدة:</b>  
+              لا تقرر المشروع… قرر الخطوة الأولى فقط.
+            </li>
+            <li>
+              <b>سلاح القفل:</b>  
+              بعد القرار، امنع نفسك من إعادة فتحه لمدة أسبوع.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 11 -->
+      <section class="card">
+        <h2>11) الدروع المناسبة ضد هجماته</h2>
+        <div class="v">
+          <p style="margin:0 0 10px">
+            الدروع هنا ليست "حماسًا"…  
+            لأن الحماس يموت سريعًا أمام رأسين متناقضين.
+          </p>
+
+          <ul>
+            <li>
+              <b>درع البوصلة:</b>  
+              جملة واحدة مكتوبة أمامك:  
+              <b>“أنا أريد هذا لأن…”</b>
+            </li>
+            <li>
+              <b>درع الوقت المحدد:</b>  
+              20 دقيقة لاتخاذ القرار… ثم إغلاق الملف.
+            </li>
+            <li>
+              <b>درع الشاهد:</b>  
+              شخص واحد تثق به تقول له قرارك قبل التنفيذ.
+            </li>
+            <li>
+              <b>درع التنفيذ السريع:</b>  
+              تنفيذ خطوة صغيرة فورًا (حتى لو سيئة).
+            </li>
+            <li>
+              <b>درع التقليل:</b>  
+              تقليل الخيارات إلى 2 فقط…  
+              لأن 3 خيارات = بداية التردد.
+            </li>
+          </ul>
+
+          <p style="margin:10px 0 0; color:var(--muted)">
+            ملاحظة: وحش التردد يكره السرعة…  
+            لأن السرعة تفضح كذبه.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="card" style="margin-top:14px">
+      <h2>ملخص سريع (للقارئ المستعجل)</h2>
+      <div class="v">
+        <ul>
+          <li><b>الاسم:</b> وحش التردد (الثعبان متعدد الرؤوس)</li>
+          <li><b>منطقته:</b> مستنقع المفاضلات</li>
+          <li><b>أخطر ما يدمره:</b> الزمان + الاتجاه</li>
+          <li><b>السلاح الأقوى ضده:</b> القرار المؤقت + خطوة فورية</li>
+          <li><b>النتيجة لو كسب:</b> لا شيء يحدث… لكن العمر ينتهي.</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<div class="footer">
+  <div class="wrap">
+    © مدينة الفشل — موسوعة الوحوش (مشروع حسن حجازي) • صفحة: Monster-11
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>الوحش السابع: التوأم – التسويف | مدينة الفشل</title>
+  <meta name="description" content="صفحة موسوعية عن الوحش السابع في مدينة الفشل: التوأم (التسويف) وكيف يحوّل الذكاء إلى مقبرة." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1621;
+      --muted:#93a4b8;
+      --text:#e9f0ff;
+      --line:rgba(255,255,255,.08);
+      --accent:#ffd166;
+      --danger:#ff4d6d;
+      --ok:#5eead4;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 80% 0%, rgba(255,209,102,.12), transparent 60%),
+                  radial-gradient(900px 600px at 0% 20%, rgba(94,234,212,.08), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.9;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1100px; margin:auto; padding:18px}
+    .topbar{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      margin:10px 0 18px;
+    }
+    .brand{display:flex; gap:10px; align-items:center;}
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(255,209,102,.25), rgba(94,234,212,.15));
+      border:1px solid var(--line);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:14px;
+      transition:.2s;
+    }
+    .btn:hover{transform:translateY(-1px); background: rgba(255,255,255,.06)}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      margin-bottom:16px;
+    }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+    .card{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    h1{margin:0 0 10px; font-size:26px; letter-spacing:.2px;}
+    .subtitle{color:var(--muted); margin-top:4px; font-size:14px;}
+    .monster-img{
+      width:100%;
+      border-radius:18px;
+      border:1px solid var(--line);
+      overflow:hidden;
+      background:#0a0f16;
+      aspect-ratio: 4/3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .monster-img img{width:100%; height:100%; object-fit:cover; display:block;}
+    .placeholder{color:var(--muted); font-size:14px; padding:18px; text-align:center;}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:13px;
+    }
+    .tag.danger{color:#ffd6dd; border-color: rgba(255,77,109,.25); background: rgba(255,77,109,.08)}
+    .tag.ok{color:#c7fff5; border-color: rgba(94,234,212,.25); background: rgba(94,234,212,.07)}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    h2{margin:0 0 10px; font-size:18px; letter-spacing:.2px;}
+    .list{margin:0; padding:0 18px 0 0;}
+    .list li{margin:6px 0}
+    .muted{color:var(--muted)}
+    .quote{
+      border-right:3px solid rgba(255,209,102,.45);
+      padding:10px 12px;
+      background: rgba(255,209,102,.06);
+      border-radius:16px;
+      margin-top:10px;
+      color:#fff6da;
+    }
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+    @media (max-width: 700px){ .two{grid-template-columns:1fr} }
+    .foot{margin:18px 0 8px; color:var(--muted); font-size:13px; text-align:center;}
+    .sep{height:1px; background:var(--line); margin:12px 0}
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      padding:2px 8px;
+      border-radius:10px;
+      font-size:12px;
+      color:#dce8ff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">CF</div>
+        <div>
+          <div style="font-weight:800">مدينة الفشل</div>
+          <div class="subtitle">موسوعة الوحوش الـ 12</div>
+        </div>
+      </div>
+
+      <a class="btn" href="index.html">⬅️ العودة للصفحة الرئيسية</a>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1>الوحش السابع: التوأم – التسويف</h1>
+        <div class="subtitle">
+          وحش لا يقول لك “لا تبدأ”… بل يقول لك: “فكر أكثر”… حتى تتحول الفكرة إلى قبر.
+        </div>
+
+        <div class="tags">
+          <span class="tag danger">وحش عقلي</span>
+          <span class="tag danger">يتغذى على الذكاء</span>
+          <span class="tag">التحليل الزائد</span>
+          <span class="tag">الكمال</span>
+          <span class="tag ok">يهزم بالبدء الفوري</span>
+        </div>
+
+        <div class="quote">
+          <b>جملته المفضلة:</b><br>
+          “مش قبل ما نفهم كل حاجة… خلينا ندرسها بس شوية.”
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="muted">
+          <b>رمزه:</b> وجه مرآة… يعكسك فيجعلك تتوه في نفسك بدل أن تتحرك.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>صورة الوحش</h2>
+        <div class="monster-img">
+          <img src="images/monster-07.png" alt="الوحش السابع: التوأم – التسويف"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="placeholder" style="display:none">
+            لم يتم رفع الصورة بعد.<br>
+            ضعها هنا: <span class="kbd">images/monster-07.png</span>
+          </div>
+        </div>
+        <div class="subtitle" style="margin-top:10px">
+          ملاحظة: الصورة يمكن إضافتها لاحقًا بدون أي تعديل في الصفحة.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h2>1) اسم الوحش</h2>
+        <div><b>التوأم</b> — (التسويف)</div>
+
+        <div class="sep"></div>
+
+        <h2>2) وصفه بمدينة الفشل</h2>
+        <div class="muted">
+          يظهر ككائن فضّي نحيف… لامع كأنه مصنوع من معدن بارد.
+          وجهه ليس وجهًا… بل مرآة صافية.
+          عندما تنظر إليه ترى نفسك… لكن نسخة “متحمسة” تتكلم كثيرًا…
+          ونسخة “حذرة” تخاف كثيرًا…
+          فيجعلك تعيش بينهما، بلا خطوة واحدة للأمام.
+          لا يهاجمك. لا يلمسك.
+          فقط يقف أمامك… ويبدأ يطرح أسئلة.
+          أسئلة لا تنتهي.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3) مهمته الأساسية</h2>
+        <ul class="list">
+          <li>تحويل <b>التفكير</b> إلى بديل عن <b>الفعل</b>.</li>
+          <li>تحويل الذكاء إلى “دوامة” بدل أن يكون “أداة”.</li>
+          <li>إقناعك أن التحضير أهم من البدء.</li>
+          <li>قتل المشاريع في مرحلة “قبل البداية”.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>4) اسم منطقته بمدينة الفشل</h2>
+        <div>
+          <b>ممرّات التحليل</b><br>
+          <span class="muted">ممرات طويلة… كل باب فيها مكتوب عليه: “لسه بدري”.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>5) سيرته الشخصية (نماذج مشهورة دمرها)</h2>
+        <div class="muted">
+          التوأم هو الوحش الذي يقتل <b>العباقرة قبل أن يولدوا</b>.
+          وهو أكثر وحش دمّر الموهوبين في التاريخ… لأن ضحاياه لا يظهرون أصلًا.
+        </div>
+        <ul class="list" style="margin-top:10px">
+          <li><b>مبدعون</b> كتبوا 200 صفحة تخطيط… ولم يكتبوا صفحة واحدة تنفيذ.</li>
+          <li><b>مدربون</b> صنعوا 30 خطة كورس… ولم يرفعوا فيديو واحد.</li>
+          <li><b>روّاد أعمال</b> ظلوا سنة يدرسون السوق… حتى سرقهم السوق.</li>
+        </ul>
+        <div class="muted" style="margin-top:10px">
+          (هذا الوحش غالبًا لا يدمّر المشهورين… بل يمنعك من أن تصبح مشهورًا.)
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>6) ماذا يدمر من عناصر الذات الأساسية</h2>
+        <div class="two">
+          <div>
+            <span class="tag danger">العقل</span>
+            <div class="muted">يجعله يلتهم نفسه بنفسه (تحليل التحليل).</div>
+          </div>
+          <div>
+            <span class="tag danger">النفس</span>
+            <div class="muted">يخلق توترًا وقلقًا من اتخاذ أي خطوة.</div>
+          </div>
+          <div>
+            <span class="tag">الجسد</span>
+            <div class="muted">إرهاق بدون إنتاج… وكسل ناتج عن ضغط ذهني.</div>
+          </div>
+          <div>
+            <span class="tag">الروح</span>
+            <div class="muted">يضعف اليقين… لأنك تؤجل الإيمان بالفعل.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>7) ماذا يدمر من عناصر الذات الفرعية</h2>
+        <ul class="list">
+          <li><b>الفؤاد:</b> يقتل الحلم بتحويله إلى “مشروع مرهق”.</li>
+          <li><b>القلب:</b> يجعل الحماس يبرد قبل أن يتحول لطاقة فعل.</li>
+          <li><b>الضمير:</b> يحوّل الضمير إلى “لوم” لأنك لم تبدأ.</li>
+          <li><b>المخ:</b> يملؤه بالسيناريوهات والاحتمالات حتى ينهار.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>8) ماذا يدمر من المجالات البيئية</h2>
+        <ul class="list">
+          <li><b>الطاقة الإيجابية:</b> يحوّلها إلى كلام وتحليل بدل شغل.</li>
+          <li><b>المادة:</b> يوقف أي دخل لأنه يمنع التنفيذ.</li>
+          <li><b>الزمان:</b> يبتلع الأيام في “استعداد” لا ينتهي.</li>
+          <li><b>الاتجاه:</b> يجعلك تتحرك داخل رأسك بدل أن تتحرك في العالم.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>9) أين يكون الأخطر في المجالات العملية الخارجية؟</h2>
+        <ul class="list">
+          <li>كتابة الكتب والروايات (تخطيط بلا كتابة).</li>
+          <li>إطلاق الكورسات (إعداد بلا تصوير).</li>
+          <li>بدء قناة يوتيوب (بحث معدات بلا نشر).</li>
+          <li>المشاريع الناشئة (دراسة سوق بلا منتج).</li>
+          <li>الزواج والعلاقات (تفكير بلا قرار).</li>
+          <li>أي حلم كبير… يحتاج أول خطوة صغيرة.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>10) خطة مواجهته / الأسلحة المضادة</h2>
+        <ul class="list">
+          <li><b>سلاح: “ابدأ قبل أن تكتمل”</b> — الكمال فخ.</li>
+          <li><b>سلاح: 20 دقيقة فعل</b> — يوميًا، مهما كان صغيرًا.</li>
+          <li><b>سلاح: قاعدة النسخة الأولى القبيحة</b> — اكتب/سجّل/انشر ثم حسّن.</li>
+          <li><b>سلاح: إعلان الموعد</b> — التزام خارجي يكسر التسويف.</li>
+          <li><b>سلاح: قرار واحد فقط</b> — لا تحل الحياة… حل الخطوة التالية.</li>
+        </ul>
+
+        <div class="quote">
+          <b>مبدأ مضاد:</b><br>
+          “أنا لا أحتاج خطة كاملة… أنا أحتاج خطوة واحدة صادقة.”
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>11) الدروع المناسبة ضد هجماته</h2>
+        <ul class="list">
+          <li><b>درع: التبسيط</b> — كل شيء يعود لسؤال: ما الخطوة التالية؟</li>
+          <li><b>درع: الالتزام اليومي</b> — حتى لو 10 دقائق.</li>
+          <li><b>درع: التتبع</b> — سجل الأيام التي نفذت فيها (حتى لو قليل).</li>
+          <li><b>درع: “لا تفكر الآن”</b> — أوقات محددة للتخطيط فقط.</li>
+          <li><b>درع: رفيق التنفيذ</b> — شخص يراقبك ويحاسبك.</li>
+        </ul>
+
+        <div class="quote">
+          <b>ملاحظة موسوعية:</b><br>
+          التوأم لا يقتل حلمك…  
+          التوأم يجعلك تقتل حلمك بيدك… وأنت تظن أنك “تستعد”.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot">
+      © مدينة الفشل — موسوعة الوحوش 12 | ملف: monster-07.html
+    </div>
+
+  </div>
+</body>
+</html>

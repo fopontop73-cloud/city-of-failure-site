@@ -1,0 +1,224 @@
+<!--
+========================================
+City of Failure — موقع الوحوش الـ 12
+جاهز للرفع على GitHub Pages
+
+الملفات المطلوبة داخل مشروعك:
+/
+  index.html
+  style.css
+  script.js
+  /images
+     monsters_grid_3x4_v2.png   (اختياري)
+     monster-01.png
+     monster-02.png
+     ...
+     monster-12.png
+  /monsters
+     monster-01.html
+     ...
+     monster-12.html
+
+مهم:
+- هذا الملف يعتمد على:
+  1) style.css
+  2) script.js
+- الرسم البياني يتم رسمه بـ Chart.js من CDN
+- الاستبيان يرسل لـ Google Sheet عبر Apps Script Web App
+========================================
+-->
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مدينة الفشل | الوحوش الـ 12</title>
+  <meta name="description" content="موسوعة الوحوش الـ 12 في مدينة الفشل + استبيان + رسم بياني لأخطر وحش حسب تصويت الزائرين." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Chart.js (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero__inner">
+      <div class="brand">
+        <div class="brand__logo">⚫</div>
+        <div class="brand__text">
+          <div class="brand__title">مدينة الفشل</div>
+          <div class="brand__subtitle">موسوعة الوحوش الـ 12 — City of Failure</div>
+        </div>
+      </div>
+
+      <h1 class="hero__headline">الوحوش الـ 12… ليست خيالًا.</h1>
+      <p class="hero__lead">
+        هذه موسوعة تفاعلية: اضغط على أي وحش لتقرأ ملفه الموسوعي، ثم صوّت: من هو الأخطر؟
+        <br />
+        التصويتات تُحفظ في Google Sheet، والرسم البياني يتحدث تلقائيًا.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#monsters">ابدأ من الوحوش</a>
+        <a class="btn btn--ghost" href="#vote">صوّت الآن</a>
+      </div>
+
+      <div class="hero__note">
+        ⚠️ ملاحظة: الموقع عربي فقط — لأن الرواية بالعربي.
+      </div>
+    </div>
+  </header>
+
+
+  <main class="container">
+
+    <!-- SECTION: MONSTERS GRID -->
+    <section id="monsters" class="section">
+      <div class="section__head">
+        <h2 class="section__title">صور الوحوش بالترتيب</h2>
+        <p class="section__desc">اضغط على صورة الوحش لفتح صفحته الموسوعية.</p>
+      </div>
+
+      <div class="grid" id="monstersGrid" aria-label="قائمة الوحوش"></div>
+
+      <div class="tip">
+        💡 لو لم تظهر الصور: تأكد أن أسماء الملفات داخل <code>images/</code> هي:
+        <code>monster-01.png</code> … <code>monster-12.png</code>
+      </div>
+    </section>
+
+
+    <!-- SECTION: CHART -->
+    <section id="chart" class="section">
+      <div class="section__head">
+        <h2 class="section__title">من هو الوحش الأخطر؟ (حسب تصويت الزائرين)</h2>
+        <p class="section__desc">الرسم البياني يتحدث تلقائيًا من Google Sheet.</p>
+      </div>
+
+      <div class="card">
+        <div class="card__content">
+          <div class="chartWrap">
+            <canvas id="votesChart" height="120"></canvas>
+          </div>
+
+          <div class="chartMeta">
+            <div class="pill" id="lastUpdate">⏳ جاري التحميل…</div>
+            <button class="btn btn--small" id="refreshBtn" type="button">تحديث الرسم</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION: VOTE FORM -->
+    <section id="vote" class="section">
+      <div class="section__head">
+        <h2 class="section__title">الاستبيان</h2>
+        <p class="section__desc">اكتب تجربتك الحقيقية مع الوحش الأخطر. (سيتم حفظها في Google Sheet)</p>
+      </div>
+
+      <div class="card">
+        <div class="card__content">
+
+          <form id="voteForm" class="form" autocomplete="off">
+
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">الاسم (اختياري)</span>
+                <input class="field__input" type="text" name="name" placeholder="مثال: حسن" />
+              </label>
+
+              <label class="field">
+                <span class="field__label">العمر (إجباري)</span>
+                <input class="field__input" type="number" name="age" min="6" max="99" required placeholder="مثال: 35" />
+              </label>
+            </div>
+
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">أنا في مدينة الفشل</span>
+                <select class="field__input" name="status" required>
+                  <option value="">اختر…</option>
+                  <option value="زائر">زائر</option>
+                  <option value="مقيم">مقيم</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label">الوحش الأخطر (تصويت)</span>
+                <select class="field__input" name="monster" id="monsterSelect" required>
+                  <option value="">اختر الوحش…</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field">
+              <span class="field__label">قصتك مع هذا الوحش (مهم جدًا)</span>
+              <textarea class="field__input field__textarea" name="story" rows="6" required
+                placeholder="احكي: ظهر إزاي؟ دمر إيه؟ وإزاي بدأت تفهمه؟"></textarea>
+            </label>
+
+            <div class="form__actions">
+              <button class="btn btn--primary" type="submit" id="submitBtn">إرسال التصويت</button>
+              <div class="form__status" id="formStatus"></div>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+      <div class="privacy">
+        🔒 لا يوجد تسجيل دخول. يتم حفظ البيانات في Google Sheet فقط.
+      </div>
+    </section>
+
+
+    <!-- SECTION: FOOTER NOTE -->
+    <section class="section">
+      <div class="endNote">
+        <div class="endNote__title">ملحوظة للمبدعين:</div>
+        <div class="endNote__text">
+          هذه ليست مجرد قصة… هذه خريطة حرب.
+          <br />
+          الجزء القادم: <strong>مدينة النجاح بملائكتها ووحوشها وشياطينها</strong>.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>© مدينة الفشل — موسوعة الوحوش الـ 12</div>
+      <div class="footer__small">تم تطوير الموقع ليعمل على GitHub Pages + Google Sheets.</div>
+    </div>
+  </footer>
+
+
+  <!-- Modal -->
+  <div class="modal" id="monsterModal" aria-hidden="true">
+    <div class="modal__overlay" data-close="true"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="بيانات الوحش">
+      <div class="modal__head">
+        <div class="modal__title" id="modalTitle">الوحش</div>
+        <button class="modal__close" id="modalClose" type="button" aria-label="إغلاق">✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+      <div class="modal__foot">
+        <a class="btn btn--primary" id="modalOpenPage" href="#" target="_self">فتح الصفحة الموسوعية</a>
+        <button class="btn btn--ghost" type="button" data-close="true">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

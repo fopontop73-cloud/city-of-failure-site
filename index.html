@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مدينة الفشل | City of Failure</title>
+
+  <style>
+    :root{
+      --bg:#070a12;
+      --card:#0d1222;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.7);
+      --line:rgba(255,255,255,.12);
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Tahoma, sans-serif;
+      background: radial-gradient(1200px 700px at 70% 0%, rgba(255,255,255,.08), transparent 60%),
+                  radial-gradient(900px 500px at 20% 10%, rgba(255,255,255,.05), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    a{color:inherit; text-decoration:none}
+
+    .container{
+      width:min(1100px, 92vw);
+      margin:auto;
+      padding:22px 0 60px;
+    }
+
+    header{
+      padding:22px 0 10px;
+      text-align:center;
+    }
+
+    .title{
+      font-size:34px;
+      font-weight:800;
+      margin:0;
+      letter-spacing:.3px;
+    }
+
+    .subtitle{
+      margin:10px auto 0;
+      color:var(--muted);
+      max-width:800px;
+      font-size:15px;
+    }
+
+    .section{
+      margin-top:28px;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+
+    .section h2{
+      margin:0 0 10px;
+      font-size:20px;
+    }
+
+    /* ===== Grid ===== */
+    #monstersGrid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+
+    @media (max-width: 900px){
+      #monstersGrid{grid-template-columns: repeat(3, 1fr);}
+    }
+    @media (max-width: 650px){
+      #monstersGrid{grid-template-columns: repeat(2, 1fr);}
+      .title{font-size:28px;}
+    }
+
+    .monster-card{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      transition:.2s ease;
+      box-shadow:0 8px 25px rgba(0,0,0,.25);
+    }
+
+    .monster-card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.25);
+    }
+
+    .monster-img{
+      width:100%;
+      aspect-ratio: 1/1;
+      background: rgba(255,255,255,.03);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .monster-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .monster-meta{
+      padding:12px 12px 14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+    }
+
+    .monster-title{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .monster-id{
+      font-size:12px;
+      color:rgba(255,255,255,.65);
+    }
+
+    .monster-name{
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .monster-symbol{
+      font-size:18px;
+      opacity:.9;
+    }
+
+    /* ===== Chart ===== */
+    .chart-wrap{
+      margin-top:14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      overflow:hidden;
+      background:rgba(0,0,0,.25);
+    }
+
+    #chartLoading{
+      color:rgba(255,255,255,.75);
+      font-size:14px;
+      margin-top:10px;
+    }
+
+    #topMonster{
+      margin-top:12px;
+      padding:12px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      color:rgba(255,255,255,.92);
+      font-size:15px;
+    }
+
+    /* ===== Form ===== */
+    form{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+
+    @media (max-width: 650px){
+      form{grid-template-columns: 1fr;}
+    }
+
+    label{
+      font-size:13px;
+      color:rgba(255,255,255,.8);
+      display:block;
+      margin-bottom:6px;
+    }
+
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      outline:none;
+      font-size:14px;
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+      grid-column: 1 / -1;
+    }
+
+    .full{
+      grid-column: 1 / -1;
+    }
+
+    button{
+      padding:14px 14px;
+      border-radius:14px;
+      border:none;
+      background: rgba(255,255,255,.92);
+      color:#000;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+      font-size:15px;
+    }
+
+    button:hover{transform: translateY(-2px);}
+    button:disabled{opacity:.55; cursor:not-allowed; transform:none;}
+
+    footer{
+      margin-top:22px;
+      text-align:center;
+      color:rgba(255,255,255,.55);
+      font-size:13px;
+    }
+
+    .note{
+      color:rgba(255,255,255,.75);
+      font-size:14px;
+      margin-top:6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <h1 class="title">مدينة الفشل</h1>
+      <p class="subtitle">
+        موسوعة الوحوش الـ 12 — مشروع تفاعلي مستوحى من رواية (City of Failure).
+        اضغط على أي وحش لفتح صفحته الموسوعية، ثم شارك في الاستبيان لتحديد من هو الأخطر.
+      </p>
+    </header>
+
+    <!-- ===== Monsters Grid ===== -->
+    <section class="section">
+      <h2>الوحوش الـ 12 (اضغط على الوحش لفتح صفحته)</h2>
+      <p class="note">ملحوظة: لو الصور غير مرفوعة الآن، سيظهر Placeholder مؤقت.</p>
+      <div id="monstersGrid"></div>
+    </section>
+
+    <!-- ===== Chart ===== -->
+    <section class="section">
+      <h2>الرسم البياني: الوحش الأخطر حسب تصويت الزائرين</h2>
+      <div id="chartLoading">جارٍ تحميل البيانات...</div>
+
+      <div class="chart-wrap">
+        <canvas id="votesChart"></canvas>
+      </div>
+
+      <div id="topMonster">جارٍ حساب الأكثر خطورة...</div>
+    </section>
+
+    <!-- ===== Survey ===== -->
+    <section class="section">
+      <h2>استبيان الزائر</h2>
+      <p class="note">
+        الهدف من الاستبيان ليس "التصويت فقط"، بل تجميع قصص حقيقية عن الوحوش في حياة الناس.
+      </p>
+
+      <form id="surveyForm">
+        <div>
+          <label for="visitorName">الاسم (اختياري)</label>
+          <input id="visitorName" type="text" placeholder="مثال: حسن" />
+        </div>
+
+        <div>
+          <label for="visitorAge">العمر (إجباري)</label>
+          <input id="visitorAge" type="number" min="5" max="99" required placeholder="مثال: 35" />
+        </div>
+
+        <div>
+          <label for="visitorStatus">أنا بمدينة الفشل (إجباري)</label>
+          <select id="visitorStatus" required>
+            <option value="">اختر...</option>
+            <option value="زائر">زائر</option>
+            <option value="مقيم">مقيم</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="dangerMonster">ما الوحش الأخطر؟ (إجباري)</label>
+          <select id="dangerMonster" required>
+            <option value="">اختر الوحش...</option>
+            <option value="1">#1 الراحة اللذيذة</option>
+            <option value="2">#2 الببغاء (التقليد)</option>
+            <option value="3">#3 الصديق (التأجيل)</option>
+            <option value="4">#4 المرأة اللعوب (الهوى)</option>
+            <option value="5">#5 العملاق (الخوف)</option>
+            <option value="6">#6 السجّان (الماضي)</option>
+            <option value="7">#7 التوأم (التسويف)</option>
+            <option value="8">#8 الساحر (التشتت)</option>
+            <option value="9">#9 القرد (الزمن/الدوبامين)</option>
+            <option value="10">#10 وحش الداعم</option>
+            <option value="11">#11 وحش التردد</option>
+            <option value="12">#12 وحش العنكبوت</option>
+          </select>
+        </div>
+
+        <div class="full">
+          <label for="visitorStory">قصتك الشخصية مع هذا الوحش (اختياري لكنه مهم جدًا)</label>
+          <textarea id="visitorStory" placeholder="احكي بإيجاز: ماذا حدث؟ وكيف أثر الوحش عليك؟"></textarea>
+        </div>
+
+        <div class="full">
+          <button id="submitBtn" type="submit">إرسال</button>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      © City of Failure — مشروع تفاعلي | تصميم وبرمجة: حسن + صديقه العقلي 😄
+    </footer>
+
+  </div>
+
+  <!-- ملف الجافاسكريبت الأساسي -->
+  <script src="app.js"></script>
+</body>
+</html>

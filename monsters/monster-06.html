@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>الوحش السادس: السجّان – الماضي | مدينة الفشل</title>
+  <meta name="description" content="صفحة موسوعية عن الوحش السادس في مدينة الفشل: السجّان (الماضي) وكيف يدمر الإنسان من الداخل." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1621;
+      --muted:#93a4b8;
+      --text:#e9f0ff;
+      --line:rgba(255,255,255,.08);
+      --accent:#ffd166;
+      --danger:#ff4d6d;
+      --ok:#5eead4;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 80% 0%, rgba(255,209,102,.12), transparent 60%),
+                  radial-gradient(900px 600px at 0% 20%, rgba(94,234,212,.08), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.9;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1100px; margin:auto; padding:18px}
+    .topbar{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      margin:10px 0 18px;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(255,209,102,.25), rgba(94,234,212,.15));
+      border:1px solid var(--line);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:14px;
+      transition:.2s;
+    }
+    .btn:hover{transform:translateY(-1px); background: rgba(255,255,255,.06)}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      margin-bottom:16px;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+    .card{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:26px;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      color:var(--muted);
+      margin-top:4px;
+      font-size:14px;
+    }
+    .monster-img{
+      width:100%;
+      border-radius:18px;
+      border:1px solid var(--line);
+      overflow:hidden;
+      background:#0a0f16;
+      aspect-ratio: 4/3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .monster-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .placeholder{
+      color:var(--muted);
+      font-size:14px;
+      padding:18px;
+      text-align:center;
+    }
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:13px;
+    }
+    .tag.danger{color:#ffd6dd; border-color: rgba(255,77,109,.25); background: rgba(255,77,109,.08)}
+    .tag.ok{color:#c7fff5; border-color: rgba(94,234,212,.25); background: rgba(94,234,212,.07)}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .list{
+      margin:0;
+      padding:0 18px 0 0;
+      color:var(--text);
+    }
+    .list li{margin:6px 0}
+    .muted{color:var(--muted)}
+    .quote{
+      border-right:3px solid rgba(255,209,102,.45);
+      padding:10px 12px;
+      background: rgba(255,209,102,.06);
+      border-radius:16px;
+      margin-top:10px;
+      color:#fff6da;
+    }
+    .two{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 700px){
+      .two{grid-template-columns:1fr}
+    }
+    .foot{
+      margin:18px 0 8px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+    .sep{height:1px; background:var(--line); margin:12px 0}
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      padding:2px 8px;
+      border-radius:10px;
+      font-size:12px;
+      color:#dce8ff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">CF</div>
+        <div>
+          <div style="font-weight:800">مدينة الفشل</div>
+          <div class="subtitle">موسوعة الوحوش الـ 12</div>
+        </div>
+      </div>
+
+      <a class="btn" href="index.html">⬅️ العودة للصفحة الرئيسية</a>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1>الوحش السادس: السجّان – الماضي</h1>
+        <div class="subtitle">
+          وحش لا يهاجمك من الأمام… بل يضعك في زنزانة داخل رأسك، ويقنعك أنك تستحقها.
+        </div>
+
+        <div class="tags">
+          <span class="tag danger">وحش نفسي / ذهني</span>
+          <span class="tag danger">يستعمل الذنب والعار</span>
+          <span class="tag">المفاتيح</span>
+          <span class="tag">الندم</span>
+          <span class="tag ok">يمكن هزيمته بالصدق</span>
+        </div>
+
+        <div class="quote">
+          <b>جملته المفضلة:</b><br>
+          “أنت حاولت قبل كده… وفشلت. يبقى خلاص… ده أنت.”
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="muted">
+          <b>رمزه:</b> سلسلة مفاتيح صدئة، كل مفتاح مكتوب عليه اسم جرح قديم.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>صورة الوحش</h2>
+        <div class="monster-img">
+          <img src="images/monster-06.png" alt="الوحش السادس: السجّان – الماضي"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="placeholder" style="display:none">
+            لم يتم رفع الصورة بعد.<br>
+            ضعها هنا: <span class="kbd">images/monster-06.png</span>
+          </div>
+        </div>
+        <div class="subtitle" style="margin-top:10px">
+          ملاحظة: يمكنك تغيير الصورة لاحقًا بدون تعديل أي كود.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h2>1) اسم الوحش</h2>
+        <div><b>السجّان</b> — (الماضي)</div>
+
+        <div class="sep"></div>
+
+        <h2>2) وصفه بمدينة الفشل</h2>
+        <div class="muted">
+          يظهر كرجل ضخم بلا ملامح واضحة… يرتدي ثوبًا داكنًا كأنه مصنوع من ليلٍ قديم.
+          في يده حلقة مفاتيح كثيرة… ليست مفاتيح أبواب… بل مفاتيح “مشاهد”.
+          كلما هزّها، سمعت رنينًا يشبه صوت الندم.
+          لا يركض. لا يصرخ. لا يهدد.
+          فقط يقترب ببطء… ثم يفتح “بابًا” داخل ذاكرتك.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3) مهمته الأساسية</h2>
+        <ul class="list">
+          <li>تحويل الماضي إلى <b>سجن</b> بدل أن يكون <b>خبرة</b>.</li>
+          <li>إقناعك أنك لا تستحق فرصة ثانية.</li>
+          <li>تحويل الخطأ إلى <b>هوية</b> بدل أن يكون <b>حدثًا</b>.</li>
+          <li>إطفاء أي محاولة جديدة قبل أن تبدأ.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>4) اسم منطقته بمدينة الفشل</h2>
+        <div>
+          <b>زنزانات الذكرى</b><br>
+          <span class="muted">مكان لا تُسمع فيه أصوات الوحوش… لأن صوتك الداخلي يقوم بالمهمة بدلًا عنهم.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>5) سيرته الشخصية (نماذج مشهورة دمرها)</h2>
+        <div class="muted">
+          السجّان لا يحتاج “مشاهير محددين” بقدر ما يحتاج نمطًا متكررًا:
+        </div>
+        <ul class="list">
+          <li><b>المبدع</b> الذي فشل مرة… فاعتبر نفسه مزيفًا للأبد.</li>
+          <li><b>رائد الأعمال</b> الذي خسر مشروعًا… فصار يخاف بدء أي شيء.</li>
+          <li><b>الموهوب</b> الذي تم السخرية منه… فصار يكره إظهار موهبته.</li>
+        </ul>
+        <div class="muted" style="margin-top:10px">
+          (في الموقع يمكننا لاحقًا إضافة أمثلة عربية/عالمية حقيقية عند رغبتك.)
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>6) ماذا يدمر من عناصر الذات الأساسية</h2>
+        <div class="two">
+          <div>
+            <span class="tag danger">الروح</span>
+            <div class="muted">يقتل الرجاء ويحوّل الدعاء إلى شعور بالذنب.</div>
+          </div>
+          <div>
+            <span class="tag danger">النفس</span>
+            <div class="muted">يخلق احتقارًا ذاتيًا ويمزج الندم بالهوية.</div>
+          </div>
+          <div>
+            <span class="tag danger">العقل</span>
+            <div class="muted">يجعلك تفسر كل تجربة جديدة بمنطق الهزيمة القديمة.</div>
+          </div>
+          <div>
+            <span class="tag">الجسد</span>
+            <div class="muted">يُنهكه بالتوتر المزمن، والضغط، واضطراب النوم.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>7) ماذا يدمر من عناصر الذات الفرعية</h2>
+        <ul class="list">
+          <li><b>الفؤاد:</b> يجعل الحلم يبدو “سخيفًا” بعد أن كان مقدسًا.</li>
+          <li><b>القلب:</b> يحوّل الحب إلى خوف من التكرار.</li>
+          <li><b>الضمير:</b> يخلط بين الضمير والجلد… فيصير الضمير سكينًا.</li>
+          <li><b>المخ:</b> يجعلك تبحث عن أسباب تمنعك بدل حلول تدفعك.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>8) ماذا يدمر من المجالات البيئية</h2>
+        <ul class="list">
+          <li><b>الطاقة الإيجابية:</b> يسحبها بتحويلها إلى “تفاؤل أحمق”.</li>
+          <li><b>المادة:</b> يمنعك من الفعل، فيتوقف الرزق كأثر جانبي.</li>
+          <li><b>الزمان:</b> يسرق المستقبل بربطك بمشهد قديم.</li>
+          <li><b>الاتجاه:</b> يحوّل طريقك إلى دوران حول الذنب.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>9) أين يكون الأخطر عمليًا؟</h2>
+        <ul class="list">
+          <li>عند بداية مشروع جديد بعد خسارة سابقة.</li>
+          <li>قبل أي ظهور اجتماعي (إلقاء، محتوى، تقديم).</li>
+          <li>بعد تجربة فشل علنية أو إحراج.</li>
+          <li>في العلاقات: عندما تظن أنك لا تستحق شخصًا جيدًا.</li>
+          <li>في الدراسة: عندما تكره مادة لأنك “فشلت فيها مرة”.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>10) خطة مواجهته / الأسلحة المضادة</h2>
+        <ul class="list">
+          <li><b>سلاح: إعادة تعريف الماضي</b> — الماضي ليس قاضيًا، بل مدرس.</li>
+          <li><b>سلاح: الاعتراف الصادق</b> — “نعم أخطأت… لكني لست خطئي.”</li>
+          <li><b>سلاح: خطوة صغيرة جدًا</b> — السجّان يكره البداية الصغيرة لأنها تكسر السجن.</li>
+          <li><b>سلاح: فصل الحدث عن الهوية</b> — “فشلت” ≠ “أنا فاشل”.</li>
+          <li><b>سلاح: كتابة الحقيقة</b> — تدوين التجربة يحولها من لعنة إلى وثيقة.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>11) الدروع المناسبة ضد هجماته</h2>
+        <ul class="list">
+          <li><b>درع: الرحمة</b> — ليس تبريرًا… بل إنصاف.</li>
+          <li><b>درع: الصحبة الصادقة</b> — شخص يذكرك بمن أنت عندما تنسى.</li>
+          <li><b>درع: نظام يومي بسيط</b> — لأن السجّان يكره الاستمرارية.</li>
+          <li><b>درع: ذكر الله بوعي</b> — لا كمسكن… بل كعودة للمعنى.</li>
+          <li><b>درع: مراجعة الإنجازات</b> — دليل ضد “تزوير الماضي”.</li>
+        </ul>
+
+        <div class="quote">
+          <b>ملاحظة موسوعية:</b><br>
+          السجّان لا يهاجمك حين تكون ضعيفًا…  
+          بل يهاجمك عندما تقترب من أن تصبح نسخة أفضل منك.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot">
+      © مدينة الفشل — موسوعة الوحوش 12 | ملف: monster-06.html
+    </div>
+
+  </div>
+</body>
+</html>

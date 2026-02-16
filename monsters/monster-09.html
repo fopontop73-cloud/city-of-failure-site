@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>الوحش 09 — القرد (الزمن/الدوبامين) | City of Failure</title>
+  <meta name="description" content="صفحة موسوعية عن وحش القرد (الزمن/الدوبامين) في مدينة الفشل: وصفه، مهمته، ماذا يدمر، وأسلحة مواجهته." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1620;
+      --muted:#a9b4c0;
+      --text:#e9eef5;
+      --line:#1e2a38;
+      --accent:#7ee7ff;
+      --danger:#ff5c7a;
+      --ok:#7CFFB2;
+      --gold:#ffcc66;
+    }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial;
+      background: radial-gradient(1200px 700px at 80% 0%, rgba(126,231,255,.12), transparent 60%),
+                  radial-gradient(900px 500px at 10% 20%, rgba(255,92,122,.10), transparent 55%),
+                  radial-gradient(800px 450px at 40% 70%, rgba(255,204,102,.10), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.9;
+    }
+    header{
+      padding:28px 16px 10px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .crumb{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:10px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size: 30px;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      color:var(--muted);
+      margin:0 0 18px;
+      font-size: 16px;
+    }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+    }
+    @media (max-width: 900px){
+      .wrap{ grid-template-columns: 1fr; }
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 30%),
+                  var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.25);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      color: var(--accent);
+    }
+    .kv{
+      display:grid;
+      grid-template-columns: 180px 1fr;
+      gap:10px 14px;
+    }
+    @media (max-width: 520px){
+      .kv{ grid-template-columns: 1fr; }
+    }
+    .k{
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .v{
+      color: var(--text);
+      font-size: 15px;
+    }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      margin: 4px 6px 0 0;
+      font-size: 13px;
+      color: var(--text);
+      background: rgba(255,255,255,.02);
+    }
+    .pill.bad{ border-color: rgba(255,92,122,.35); }
+    .pill.good{ border-color: rgba(124,255,178,.35); }
+    .pill.warn{ border-color: rgba(255,204,102,.35); }
+    .imgbox{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#05070a;
+      aspect-ratio: 16/10;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position: relative;
+    }
+    .imgbox img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.05) saturate(1.05);
+    }
+    .badge{
+      position:absolute;
+      left:12px;
+      top:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.12);
+      font-size: 12px;
+      color: var(--gold);
+      backdrop-filter: blur(6px);
+    }
+    .note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:10px;
+    }
+    .quote{
+      border-right: 4px solid rgba(126,231,255,.55);
+      padding: 10px 14px;
+      margin: 12px 0 0;
+      background: rgba(255,255,255,.02);
+      border-radius: 14px;
+      color: var(--text);
+      font-style: italic;
+    }
+    .danger{
+      color: var(--danger);
+      font-weight: 800;
+    }
+    .biglaw{
+      margin-top: 10px;
+      padding: 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,204,102,.18);
+      background: rgba(255,204,102,.06);
+    }
+    footer{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="crumb">City of Failure ⟵ الوحوش ⟵ الوحش 09</div>
+  <h1>الوحش 09 — القرد (الزمن / الدوبامين)</h1>
+  <p class="subtitle">
+    الوحش الذي لا يسرق أحلامك… بل يسرق <b>وقتك</b> وأنت تضحك.
+    <br/>
+    وهذا هو سبب أنه “مدير مدينة الفشل” الحقيقي.
+  </p>
+</header>
+
+<section class="wrap">
+
+  <!-- العمود الرئيسي -->
+  <div class="card">
+    <h2>1) اسم الوحش</h2>
+    <div class="kv">
+      <div class="k">الاسم الرسمي</div>
+      <div class="v">القرد</div>
+
+      <div class="k">الاسم العلمي داخل المدينة</div>
+      <div class="v">مُحرّك الدوبامين</div>
+
+      <div class="k">التصنيف</div>
+      <div class="v">وحش زمني / عصبي / إدماني</div>
+
+      <div class="k">الرتبة</div>
+      <div class="v"><span class="danger">الأهم والأخطر</span> — لأنه يمدّ كل الوحوش بالبترول</div>
+    </div>
+
+    <div class="quote">
+      “لحظة متعة = ساعة ضاعت…  
+      إشعار واحد = حلم مات.”
+    </div>
+  </div>
+
+  <!-- صورة -->
+  <aside class="card">
+    <h2>صورة الوحش</h2>
+    <div class="imgbox">
+      <span class="badge">⚠️ مدير مدينة الفشل</span>
+      <!-- غيّر اسم الصورة حسب ملفك -->
+      <img src="images/monster-09.jpg" alt="القرد — الزمن والدوبامين" />
+    </div>
+    <div class="note">
+      ضع الصورة داخل مجلد <b>images</b> باسم: <b>monster-09.jpg</b>
+    </div>
+  </aside>
+
+  <div class="card">
+    <h2>2) وصفه بمدينة الفشل</h2>
+    <p class="v">
+      القرد ليس قردًا عاديًا.
+      <br/><br/>
+      هو كائن شفاف… كأن جسمه مصنوع من زجاج مكسور أو ماء متجمّد.
+      لا ترى له ملامح ثابتة…
+      لأن ملامحه تتبدّل حسب ما تحب.
+      <br/><br/>
+      تراه مرة بشكل “ميم مضحك”،
+      ومرة “فيديو قصير”،
+      ومرة “رسالة جديدة”،
+      ومرة “سكرول لا نهائي”.
+      <br/><br/>
+      يسكن داخل ساعة صخرية عملاقة…
+      عقاربها ليست عقارب…
+      بل سكاكين صغيرة تلمع.
+      <br/><br/>
+      هو لا يقف.
+      هو يقفز.
+      يضحك.
+      يعبث بعقارب الزمن…
+      وكأنه طفل يعبث بحياة شخص بالغ.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>3) مهمته الأساسية</h2>
+    <p class="v">
+      مهمته الأساسية هي:
+      <b>تفتيت الزمن إلى قطع صغيرة بلا معنى</b>.
+      <br/><br/>
+      لأن الإنسان لا يُهزم حين يتعب…
+      بل يُهزم حين يصبح يومه “مجزأ”.
+      <br/><br/>
+      القرد لا يمنعك من العمل صراحة…
+      هو فقط يجعلك تعمل:
+      <br/>
+      <span class="danger">دقيقة</span>…
+      ثم <span class="danger">يتوقف الدماغ</span>…
+      ثم <span class="danger">يرجع لجرعة دوبامين</span>…
+      ثم يحاول من جديد…
+      حتى تموت القدرة على التركيز.
+    </p>
+
+    <div class="biglaw">
+      <div class="v">
+        <b>قانون القرد داخل المدينة:</b><br/>
+        • لحظة واحدة “متعة” = ساعة ضاعت<br/>
+        • فيديو صغير = أسبوع اتبلع<br/>
+        • إشعار واحد = حلم مات
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>4) اسم منطقته بمدينة الفشل</h2>
+    <div class="kv">
+      <div class="k">اسم المنطقة</div>
+      <div class="v">ميدان الساعة المكسورة</div>
+
+      <div class="k">وصفها</div>
+      <div class="v">
+        ساحة ضخمة في منتصف المدينة.
+        كل شيء فيها يلمع.
+        كل شيء فيها “ممتع”.
+        لكن لا شيء فيها “يُبنى”.
+        <br/>
+        وأي شخص يدخلها… يخرج منها بعد ساعات وهو لا يتذكر ماذا فعل.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>5) سيرته الشخصية (نماذج مشهورة دمرها هذا الوحش في بداياتها)</h2>
+    <p class="v">
+      القرد هو الوحش الذي دمّر ملايين الموهوبين بدون ضجة…
+      لأنه يقتلهم “بالضحك”.
+      <br/><br/>
+      <b>نماذج مشهورة نجت من القرد:</b>
+    </p>
+
+    <div class="v">
+      <span class="pill">إيلون ماسك (انضباط الوقت)</span>
+      <span class="pill">ستيف جوبز (بساطة التركيز)</span>
+      <span class="pill">توماس إديسون (ساعات العمل الطويلة)</span>
+      <span class="pill">جي كي رولينج (كتابة يومية)</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>ملحوظة مهمة:</b><br/>
+      القرد لا يدمّرهم حين أصبحوا ناجحين…
+      بل كان يمكن أن يدمّرهم قبل النجاح،
+      لو لم يكن عندهم:
+      <b>نظام</b> + <b>تكرار</b> + <b>عزلة اختيارية</b>.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>6) ماذا يدمر من عناصر الذات الأساسية</h2>
+    <div class="v">
+      <span class="pill bad">العقل</span>
+      <span class="pill bad">الجسد</span>
+      <span class="pill bad">النفس</span>
+      <span class="pill bad">الروح</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>كيف؟</b><br/>
+      • <b>العقل:</b> يقتل التركيز ويكسر مسار التفكير العميق.<br/>
+      • <b>الجسد:</b> يخرب النوم ويستنزف الطاقة العصبية.<br/>
+      • <b>النفس:</b> يخلق قلقًا خفيًا دائمًا (بدون سبب واضح).<br/>
+      • <b>الروح:</b> يجعل الإنسان يشعر أنه “عاش كثيرًا”… وهو لم يعش شيئًا.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>7) ماذا يدمر من عناصر الذات الفرعية</h2>
+    <div class="v">
+      <span class="pill bad">المخ (النفعي)</span>
+      <span class="pill bad">الفؤاد</span>
+      <span class="pill bad">القلب</span>
+      <span class="pill bad">الضمير</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      • <b>المخ النفعي:</b> يصبح تاجر متعة… يبيعك اليوم مقابل دقيقة.<br/>
+      • <b>الفؤاد:</b> يفقد القدرة على رؤية الرموز والإشارات العميقة.<br/>
+      • <b>القلب:</b> يبرد… لأن كثرة المتعة السريعة تقتل الشعور الحقيقي.<br/>
+      • <b>الضمير:</b> يتحول إلى صوت خافت… ثم يختفي.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>8) ماذا يدمر من المجالات البيئية</h2>
+    <div class="v">
+      <span class="pill bad">الزمان</span>
+      <span class="pill bad">الاتجاه</span>
+      <span class="pill bad">الطاقة الإيجابية</span>
+      <span class="pill bad">المادة</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      • <b>الزمان:</b> يجعلك لا تملك يومك… بل يومك يملكك.<br/>
+      • <b>الاتجاه:</b> يخلط بين “الانشغال” و”الإنجاز”.<br/>
+      • <b>الطاقة الإيجابية:</b> يحولها إلى هياج لحظي ثم انهيار.<br/>
+      • <b>المادة:</b> يجعل كل شيء حولك “موجود”… ولا شيء “مكتمل”.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>9) أين يكون الأخطر في المجالات العملية الخارجية</h2>
+    <p class="v">
+      القرد يكون الأخطر جدًا في:
+    </p>
+
+    <div class="v">
+      <span class="pill">الكتابة وصناعة المحتوى</span>
+      <span class="pill">التعلم الذاتي (كورسات)</span>
+      <span class="pill">البرمجة والمشاريع الطويلة</span>
+      <span class="pill">التجارة الإلكترونية</span>
+      <span class="pill">القراءة والبحث</span>
+      <span class="pill">الرياضة والالتزام الصحي</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      لأنه يهاجم بالذات المجالات التي تحتاج:
+      <b>زمن متصل</b> وليس زمنًا مجزأ.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>10) خطة مواجهته / الأسلحة المضادة</h2>
+
+    <p class="v">
+      القرد لا يُهزم بالنية…
+      بل يُهزم بـ <b>الهندسة</b>.
+      <br/>
+      (هندسة وقتك… هندسة هاتفك… هندسة بيئتك).
+    </p>
+
+    <div class="v">
+      <span class="pill good">سلاح: قتل الإشعارات</span>
+      <span class="pill good">سلاح: جلسات عمل 45–90 دقيقة</span>
+      <span class="pill good">سلاح: قفل التطبيقات (Timer)</span>
+      <span class="pill good">سلاح: كتابة هدف واحد يوميًا</span>
+      <span class="pill good">سلاح: إغلاق “السكرول”</span>
+      <span class="pill good">سلاح: نوم مبكر ثابت</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>الضربة القاتلة للقرد:</b><br/>
+      أن تُعيد “السيادة” على الزمن.
+      <br/>
+      أي: أنت من يقرر متى المتعة… وليس المتعة من تقرر متى أنت.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>11) الدروع المناسبة ضد هجماته</h2>
+
+    <p class="v">
+      القرد يهاجمك بسلاحين:
+      <b>المتعة السريعة</b> و <b>القطع المستمر للتركيز</b>.
+      <br/>
+      لذلك الدروع تكون:
+    </p>
+
+    <div class="v">
+      <span class="pill good">درع: هاتف بعيد أثناء العمل</span>
+      <span class="pill good">درع: مكان عمل ثابت</span>
+      <span class="pill good">درع: روتين صباحي بلا شاشة</span>
+      <span class="pill good">درع: متعة “محددة بوقت”</span>
+      <span class="pill good">درع: صديق محاسبة (Accountability)</span>
+      <span class="pill good">درع: كتابة يومية (حتى سطر)</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>أقوى درع:</b><br/>
+      أن تتعلم “الملل الصحي”.  
+      لأن القرد يعيش على خوفك من الملل.
+    </p>
+  </div>
+
+</section>
+
+<footer>
+  © City of Failure — Monster Encyclopedia (Arabic Edition)
+</footer>
+
+</body>
+</html>
