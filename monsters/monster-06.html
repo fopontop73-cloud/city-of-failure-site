@@ -180,7 +180,7 @@
         </div>
       </div>
 
-      <a class="btn" href="index.html">⬅️ العودة للصفحة الرئيسية</a>
+      <a class="btn" href="index.html" data-home="1">⬅️ العودة للصفحة الرئيسية</a>
     </div>
 
     <div class="hero">
@@ -213,7 +213,7 @@
       <div class="card">
         <h2>صورة الوحش</h2>
         <div class="monster-img">
-          <img src="images/monster-06.png" alt="الوحش السادس: السجّان – الماضي"
+          <img src="../images/monster-06.png" alt="الوحش السادس: السجّان – الماضي"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <div class="placeholder" style="display:none">
             لم يتم رفع الصورة بعد.<br>
@@ -365,5 +365,23 @@
     </div>
 
   </div>
+<script>
+(function(){
+  function homeTarget(){
+    if (location.pathname.includes('/monsters/')) return '../index.html';
+    return 'index.html';
+  }
+  function bind(){
+    document.querySelectorAll('a[data-home="1"], button[data-home="1"]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        location.href = homeTarget();
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
 </body>
 </html>

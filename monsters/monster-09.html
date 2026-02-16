@@ -211,7 +211,7 @@
     <div class="imgbox">
       <span class="badge">⚠️ مدير مدينة الفشل</span>
       <!-- غيّر اسم الصورة حسب ملفك -->
-      <img src="images/monster-09.jpg" alt="القرد — الزمن والدوبامين" />
+      <img src="../images/monster-09.png" alt="القرد — الزمن والدوبامين" />
     </div>
     <div class="note">
       ضع الصورة داخل مجلد <b>images</b> باسم: <b>monster-09.jpg</b>
@@ -448,5 +448,23 @@
   © City of Failure — Monster Encyclopedia (Arabic Edition)
 </footer>
 
+<script>
+(function(){
+  function homeTarget(){
+    if (location.pathname.includes('/monsters/')) return '../index.html';
+    return 'index.html';
+  }
+  function bind(){
+    document.querySelectorAll('a[data-home="1"], button[data-home="1"]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        location.href = homeTarget();
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
 </body>
 </html>

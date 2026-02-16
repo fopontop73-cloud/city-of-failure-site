@@ -24,7 +24,7 @@
 <body>
 <header>
   <div class="wrap">
-    <a href="index.html">⬅ العودة للصفحة الرئيسية</a>
+    <a href="index.html" data-home="1">⬅ العودة للصفحة الرئيسية</a>
     <h1>الوحش 02: الببغاء (التقليد)</h1>
   </div>
 </header>
@@ -33,7 +33,7 @@
   <div class="grid">
     <div class="card">
       <h2>الصورة</h2>
-      <img src="images/monster-02.png" alt="الوحش 02 - الببغاء">
+      <img src="../images/monster-02.png" alt="الوحش 02 - الببغاء">
       <div class="tag">City of Failure</div>
     </div>
 
@@ -129,5 +129,23 @@
     </div>
   </div>
 </main>
+<script>
+(function(){
+  function homeTarget(){
+    if (location.pathname.includes('/monsters/')) return '../index.html';
+    return 'index.html';
+  }
+  function bind(){
+    document.querySelectorAll('a[data-home="1"], button[data-home="1"]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        location.href = homeTarget();
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
 </body>
 </html>

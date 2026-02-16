@@ -202,7 +202,7 @@
         </p>
 
         <div class="btnrow">
-          <a class="btn" href="index.html">⬅ العودة للصفحة الرئيسية</a>
+          <a class="btn" href="index.html" data-home="1">⬅ العودة للصفحة الرئيسية</a>
           <a class="btn" href="monster-11.html">⟵ الوحش السابق</a>
         </div>
 
@@ -214,7 +214,7 @@
       </div>
 
       <div class="imgbox">
-        <img src="images/monster-12.png" alt="وحش العنكبوت - اللبس الفلسفي" />
+        <img src="../images/monster-12.png" alt="وحش العنكبوت - اللبس الفلسفي" />
         <div class="imgcap">
           الصورة: <b>monster-12.png</b> داخل مجلد <b>images</b>
         </div>
@@ -498,5 +498,23 @@
     © مدينة الفشل — موسوعة الوحوش (مشروع حسن حجازي) • صفحة: Monster-12
   </div>
 </div>
+<script>
+(function(){
+  function homeTarget(){
+    if (location.pathname.includes('/monsters/')) return '../index.html';
+    return 'index.html';
+  }
+  function bind(){
+    document.querySelectorAll('a[data-home="1"], button[data-home="1"]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        location.href = homeTarget();
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
 </body>
 </html>

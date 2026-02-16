@@ -266,7 +266,7 @@
       </div>
 
       <nav class="nav">
-        <a class="btn" href="index.html">⬅️ العودة للرئيسية</a>
+        <a class="btn" href="index.html" data-home="1">⬅️ العودة للرئيسية</a>
         <a class="btn" href="monsters.html">🧟 صفحة الوحوش</a>
       </nav>
     </header>
@@ -384,7 +384,7 @@
 
       <aside class="card">
         <div class="monsterImg">
-          <img src="images/monster-05.png" alt="الوحش الخامس: العملاق – الخوف">
+          <img src="../images/monster-05.png" alt="الوحش الخامس: العملاق – الخوف">
           <div class="imgOverlay"></div>
           <div class="imgCaption">
             <div>
@@ -420,5 +420,23 @@
     </footer>
 
   </div>
+<script>
+(function(){
+  function homeTarget(){
+    if (location.pathname.includes('/monsters/')) return '../index.html';
+    return 'index.html';
+  }
+  function bind(){
+    document.querySelectorAll('a[data-home="1"], button[data-home="1"]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        location.href = homeTarget();
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
 </body>
 </html>
