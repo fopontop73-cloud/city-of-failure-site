@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>الوحش 08 — الساحر(التشتيت) | City of Failure</title>
+  <meta name="description" content="صفحة موسوعية عن وحش الساحر( التشتيت ) في مدينة الفشل: وصفه، مهمته، ماذا يدمر، وأسلحة مواجهته." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1620;
+      --muted:#a9b4c0;
+      --text:#e9eef5;
+      --line:#1e2a38;
+      --accent:#ffcc66;
+      --danger:#ff5c7a;
+      --ok:#7CFFB2;
+    }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial;
+      background: radial-gradient(1200px 700px at 80% 0%, rgba(255,204,102,.12), transparent 60%),
+                  radial-gradient(900px 500px at 10% 20%, rgba(255,92,122,.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.9;
+    }
+    header{
+      padding:28px 16px 10px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .crumb{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:10px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size: 30px;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      color:var(--muted);
+      margin:0 0 18px;
+      font-size: 16px;
+    }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+    }
+    @media (max-width: 900px){
+      .wrap{ grid-template-columns: 1fr; }
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 30%),
+                  var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.25);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      color: var(--accent);
+    }
+    .kv{
+      display:grid;
+      grid-template-columns: 180px 1fr;
+      gap:10px 14px;
+    }
+    @media (max-width: 520px){
+      .kv{ grid-template-columns: 1fr; }
+    }
+    .k{
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .v{
+      color: var(--text);
+      font-size: 15px;
+    }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      margin: 4px 6px 0 0;
+      font-size: 13px;
+      color: var(--text);
+      background: rgba(255,255,255,.02);
+    }
+    .pill.bad{ border-color: rgba(255,92,122,.35); }
+    .pill.good{ border-color: rgba(124,255,178,.35); }
+    .imgbox{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#05070a;
+      aspect-ratio: 16/10;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .imgbox img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:10px;
+    }
+    .quote{
+      border-right: 4px solid rgba(255,204,102,.5);
+      padding: 10px 14px;
+      margin: 12px 0 0;
+      background: rgba(255,255,255,.02);
+      border-radius: 14px;
+      color: var(--text);
+      font-style: italic;
+    }
+    .danger{
+      color: var(--danger);
+      font-weight: 800;
+    }
+    footer{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="crumb">City of Failure ⟵ الوحوش ⟵ الوحش 08</div>
+  <h1>الوحش 08 — الساحر(التشتيت)</h1>
+  <p class="subtitle">
+    الوحش الذي لا يهاجمك بالسلاح… بل بالتفاهات.
+    <br/>
+     يفتح لك “بابا” جديد للتشتيت… فتنسى أنك خرجت من أجل هدف .
+  </p>
+</header>
+
+<section class="wrap">
+
+  <!-- العمود الرئيسي -->
+  <div class="card">
+    <h2>1) اسم الوحش</h2>
+    <div class="kv">
+      <div class="k">الاسم الرسمي</div>
+      <div class="v">الساحر</div>
+
+      <div class="k">اللقب داخل المدينة</div>
+      <div class="v">قاتل التركيز فى المهام فاسد كل ماهو هام</div>
+
+      <div class="k">التصنيف</div>
+      <div class="v">وحش نفسي / زمني / عقلى</div>
+    </div>
+
+    <div class="quote">
+      “التفاهات لن تضيع وقتك هى ترويح عن الروح والنفس.”
+    </div>
+  </div>
+
+  <!-- صورة -->
+  <aside class="card">
+    <h2>صورة الوحش</h2>
+    <div class="imgbox">
+      <!-- غيّر اسم الصورة حسب ملفك -->
+      <img src="../images/monster-08.png" alt="الساحر— الشتات" />
+    </div>
+    <div class="note">
+      ضع الصورة داخل مجلد <b>images</b> باسم: <b>monster-08.jpg</b>
+    </div>
+  </aside>
+
+  <div class="card">
+    <h2>2) وصفه بمدينة الفشل</h2>
+    <p class="v">
+      ساحر ذهبي… حوله رموز وأفكار تتطاير.
+يتكلم بصوت جميل جدًا… صوت يمدحك دائمًا:
+“أنت عبقري… والعبقرية تحتاج أكثر من مشروع!”
+كلما أمسكت فكرة…
+ظهرت عشر أخرى أجمل.
+ وهو ملفت للأنظار…
+      لكن وجهه ليس وجه أمرأة ولا رجل.
+      <br/><br/>
+      وجهه خليط من ملامح مألوفة:
+      جزء منه الفنانة الشهيرة وجزء يشبه الفنان الجذاب،
+      وجزء يشبه الشخص الذي أبهرك يوما،
+      وجزء يشبه “النسخة التي كنت تتمنى أن تكونها”.
+      <br/><br/>
+      في يده سلسلة من الأعيب المبهرة
+      كل لعبة عليها كلمة ضياع تركيز وفقد إنجاذ:
+      <span class="danger">“إبهار”</span>،
+      <span class="danger">“إنبهار”</span>،
+      <span class="danger">“عجائب”</span>،
+      <span class="danger">“غرائب”</span>.
+      <br/><br/>
+      لا يصرخ.
+      لا يطارد.
+      لا يحتاج.
+      هو فقط يقف…وأنت من تذهب اليه... ويبتسم ابتسامة باردة كأنها تقول:
+      <b>“تعال شوف بنفسك… قبل ما تتجرأ تكمّل.”</b>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>3) مهمته الأساسية</h2>
+    <p class="v">
+      مهمته الأساسية هي <b>تشتيت التفكير وضياع التركيز</b>،
+       سرقة الاتجاه باسم الإبداع.
+التشتت لا يسرق الوقت…
+التشتت يسرق البوصلة.
+بحيث يصبح المستقبل ثقيل… والتفكير عبئ.
+      <br/><br/>
+      الساحر لا يوقفك بالقوة…
+      بل يزرع فيك قناعة واحدة قاتلة:
+      <b>“إن ساعة الحظ وإن مايفوتك من تفاهات لن تعوض.”</b>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>4) اسم منطقته بمدينة الفشل</h2>
+    <div class="kv">
+      <div class="k">اسم المنطقة</div>
+      <div class="v">الإبهار</div>
+
+      <div class="k">وصفها</div>
+      <div class="v">
+         ممرات ملونة ،أبواب كثيرة  ملونة  ذات نوافذ،
+        وعلى كل باب لوحة مكتوب عليها أدخل لن تصدق عنيك
+        <br/>
+        (وإن الإنبهار ..سبب الإنهيار”).
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>5) سيرته الشخصية (نماذج مشهورة دمرها هذا الوحش في بداياتها)</h2>
+    <p class="v">
+      •	شخص لديه 9 مشاريع… ولا مشروع واحد مكتمل.
+•	شخص بدأ قناة ويوتيوب ودورة ورواية ومتجر… فمات كل شيء.
+•	شخص أقنع نفسه أنه “متعدد المواهب”… فصار متعدد الخسائر.
+هذا الوحش يلبس قناع المدرب الإيجابي 
+
+      <br/><br/>
+      <b>نماذج شهيرة واجهت هذا الوحش ثم انتصرت:</b>
+    </p>
+
+    <div class="v">
+      <span class="pill">توماس إديسون</span>
+           <span class="pill">جي كي رولينج</span>
+      <span class="pill">ستيف جوبز</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>الفكرة هنا:</b> كل واحد منهم كان لديه “مفتاح” واضح:
+      طرد / رفض / إفلاس / فشل / سخرية…
+      وكان ممكن أن يصبح ذلك المفتاح هو الباب الذي يغلق عليهم حياتهم للأبد.
+      <br/>
+      لكنهم كسروا الخدعة: <b>الماضي خبرة… وليس هوية.</b>
+    </p>
+
+    <div class="note">
+      (لو تحب، أعمل لك في النهاية نسخة عربية بأمثلة عربية حقيقية بنفس الدقة.)
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>6) ماذا يدمر من عناصر الذات الأساسية</h2>
+    <div class="v">
+      <span class="pill bad">العقل</span>
+      <span class="pill bad">النفس</span>
+      <span class="pill bad">الروح</span>
+      <span class="pill bad">الجسد</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>كيف يدمرهم؟</b><br/>
+      • <b>العقل:</b> يفقد القدرة على التركيز..<br/>
+      • <b>النفس:</b>تفقد الإحساس بالإنجاز..<br/>
+      • <b>الروح:</b> تتشتت الرسالة.”.<br/>
+      • <b>الجسد:</b> يتعب بلا نتيجة..
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>7) ماذا يدمر من عناصر الذات الفرعية</h2>
+    <div class="v">
+      <span class="pill bad">الضمير</span>
+      <span class="pill bad">القلب</span>
+      <span class="pill bad">الفؤاد</span>
+      <span class="pill bad">المخ (النفعي)</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      • <b>الضمير:</b>يصبح ساخرًا منك..<br/>
+      • <b>القلب:</b> يتعب من كثرة البدايات..<br/>
+      • <b>الفؤاد:</b> يتحول إلى حماس مؤقت..<br/>
+      • <b>المخ النفعي:</b> يصير مصنع أفكار بلا إنتاج.”.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>8) ماذا يدمر من المجالات البيئية</h2>
+    <div class="v">
+      <span class="pill bad">الزمان</span>
+      <span class="pill bad">الاتجاه</span>
+      <span class="pill bad">الطاقة الإيجابية</span>
+      <span class="pill bad">المادة</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      • <b>الزمان:</b> يتفتت إلى قطع صغيرة.”.<br/>
+      • <b>الاتجاه:</b> أول من يُقتل..<br/>
+      • <b>الطاقة :</b> تتوزع بلا جدوى.”.<br/>
+      • <b>المادة:</b> يصرف أو يوضع فى الصغائر والتفاهات وفيما لاتحتاج اليه فعليا “لا شيء يُبنى فعليًا.”.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>9) أين يكون الأخطر في المجالات العملية الخارجية</h2>
+    <p class="v">
+      الساحر يكون الأخطر جدًا في:
+    </p>
+
+    <div class="v">
+      <span class="pill">بدء مشروع جديد </span>
+      <span class="pill">عند المبدعين</span>
+      <span class="pill">عند أصحاب المواهب المتعددة.</span>
+      <span class="pill">من لديهم مشروع كبير ويحتاج صبر.</span>
+      <span class="pill">عند من ينجح بسرعة في أشياء كثيرة.”</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      لأن الساحر لا يحاربك في “الفعل”…  
+      بل يحاربك في <b>التركيز</b>.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>10) خطة مواجهته / الأسلحة المضادة</h2>
+
+    <p class="v">
+      الساحر لا يُهزم بالمواجهة… بل بالمنهج.
+      <br/>
+      وهذه أهم الأسلحة المضادة:
+    </p>
+
+    <div class="v">
+      <span class="pill good">مشروع واحد رئيسي لمدة</span>
+
+      <span class="pill good"> (اكتب ولاتنفذ أو سلاح دفتر الأفكار المؤجلة</span>
+      <span class="pill good">سلاح: قاعدة “لا تبدأ قبل أن تنهي”.</span>
+      <span class="pill good">القاعدة الذهبية :الإنبهار هو الإنهيار</span>
+      <span class="pill good">سلاح التنفس العميق وإغماض الطرف </span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>القاعدة الذهبية:</b><br/>
+      لا تدخل غرفة من غرف الماضي إلا ومعك “مخرج”.
+      <br/>
+      (قرار واضح + خطوة واضحة + زمن محدد).
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>11) الدروع المناسبة ضد هجماته</h2>
+
+    <p class="v">
+    •	جدول أسبوعي ثابت.:
+      <b>العار</b> + <b>المقارنة</b> + <b>التنبؤ السلبي</b>.
+      <br/>
+      لذلك الدروع تكون:
+    </p>
+
+    <div class="v">
+      <span class="pill good">•	درع: قياس التقدم بالأرقام لا بالمشاعر.</span>
+      <span class="pill good">•	درع: شريك محاسبة (Accountability).”</span>
+      <span class="pill good">درع: دعم إنسان واحد صادق</span>
+      <span class="pill good">درع: روتين ثابت (حتى لو بسيط)</span>
+      <span class="pill good">درع: إنجاز يومي</span>
+    </div>
+
+    <p class="v" style="margin-top:10px">
+      <b>أقوى درع:</b>  
+      المشتتات مهما كانت كتفاهات وكل ماهو خارج المسارك الحالى فهو خالى .
+    </p>
+  </div>
+
+</section>
+
+<footer>
+  © City of Failure — Monster Encyclopedia (Arabic Edition)
+</footer>
+
+<script>
+(function(){
+  function homeTarget(){
+    if (location.pathname.includes('/monsters/')) return '../index.html';
+    return 'index.html';
+  }
+  function bind(){
+    document.querySelectorAll('a[data-home="1"], button[data-home="1"]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        location.href = homeTarget();
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
+</script>
+</body>
+</html>
