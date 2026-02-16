@@ -229,7 +229,7 @@ async function loadVotesChart() {
   if (loading) loading.style.display = "block";
 
   try {
-    const res = await fetch(`${APPS_SCRIPT_URL}?action=stats`);
+    const res = await fetch(`${APPS_SCRIPT_URL}?action=votes`);
     const data = await res.json();
 
     if (data.status !== "success") throw new Error("Stats failed");
