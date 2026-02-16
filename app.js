@@ -8,7 +8,7 @@
 
 // 🔥 رابط Google Apps Script (كما أرسلته أنت)
 const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbx9FInuzxcmHplHd0rMSIRIOiYPGCqujIcgBtLS7No4/exec";
+  "https://script.google.com/macros/s/AKfycbwX8MQLQreZazVyuu5mIOqgjESmwNJ4N0WaCBIkUR_ch2wQD9Cp1CGuhvgxCDurbQL-FA/exec";
 
 // =========================================================
 // 1) بيانات الوحوش الـ 12 (بالترتيب)
